@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Gabriela 🩵</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: linear-gradient(180deg, #eaf7ff, #ffffff, #dcefff);
+      color: #42617e;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+      margin: auto;
+      padding: 35px 20px 60px;
+      position: relative;
+    }
+
+    .roses {
+      font-size: 35px;
+      letter-spacing: 8px;
+      margin: 20px 0;
+    }
+
+    h1 {
+      font-size: clamp(35px, 8vw, 60px);
+      color: #638db8;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 20px auto;
+      max-width: 480px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid #d5e8f8;
+      border-radius: 25px;
+      padding: 30px 22px;
+      margin-top: 30px;
+      box-shadow: 0 10px 35px rgba(111, 160, 204, 0.15);
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      background: #8bb8e3;
+      color: white;
+      padding: 15px 25px;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      margin: 12px 5px;
+      box-shadow: 0 5px 15px rgba(91, 139, 187, 0.2);
+      transition: transform 0.25s, background 0.25s;
+    }
+
+    button:hover {
+      background: #709fce;
+      transform: translateY(-3px);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .letter {
+      text-align: left;
+      line-height: 2;
+      font-size: 17px;
+      white-space: pre-line;
+      animation: appear 1s ease;
+    }
+
+    .signature {
+      text-align: right;
+      color: #729fc9;
+      font-style: italic;
+      margin-top: 25px;
+    }
+
+    .gift {
+      font-size: 75px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .footer {
+      font-size: 13px;
+      margin-top: 40px;
+      color: #8ba7c0;
+    }
+
+    .petal {
+      position: fixed;
+      top: -30px;
+      z-index: 10;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <div class="roses">🤍 🌹 🤍</div>
+
+    <h1>Para Gabriela</h1>
+
+    <p class="subtitle">
+      Hay regalos que se pueden envolver,
+      y hay otros que se preparan con el corazón 🩵
+    </p>
+
+    <section class="card" id="welcome">
+      <p>
+        Hoy hice este pequeño lugar pensando en ti,
+        en tu sonrisa y en lo especial que eres
+      </p>
+
+      <p>Espero que te guste esta pequeña sorpresa 🤍</p>
+
+      <button onclick="openLetter()">
+        Tengo una sorpresa para ti 💌
+      </button>
+    </section>
+
+    <section class="card hidden" id="letterSection">
+      <div class="roses">🤍 🩵 🤍</div>
+
+      <h2>Una cartita para ti</h2>
+
+      <div class="letter" id="letterText">
+        Feliz cumpleaños, preciosa 🩵
+
+        Hoy quiero recordarte lo especial que eres
+        y desearte un nuevo año lleno de momentos
+        bonitos, tranquilidad, amor y muchísimas
+        razones para sonreír
+
+        Espero que la vida te sorprenda con cosas
+        lindas, que puedas cumplir tus sueños y
+        que nunca te falten personas que te quieran
+        de verdad
+
+        Preparé este pequeño detalle con mucho
+        cariño, porque quería regalarte algo
+        diferente y que pudieras guardar como
+        un recuerdo bonito
+
+        Ojalá, cuando vuelvas a ver esta página,
+        te saque aunque sea una pequeña sonrisa 🤍
+      </div>
+
+      <div class="signature">
+        Con mucho cariño, para ti 🩵
+      </div>
+
+      <button onclick="openGift()">
+        Abre tu regalo 🎁
+      </button>
+    </section>
+
+    <section class="card hidden" id="giftSection">
+      <div class="gift">🎁</div>
+
+      <h2>Una última cosita...</h2>
+
+      <p class="subtitle">
+        Este regalo todavía tiene espacio
+        para más sorpresas bonitas
+      </p>
+
+      <p>
+        Aquí pondremos nuestra canción especial
+        y los detalles que quieras añadir después 🩵
+      </p>
+
+      <div class="roses">🤍 🌹 🤍</div>
+
+      <button onclick="showLove()">
+        Pulsa aquí ✨
+      </button>
+
+      <p id="finalMessage" class="hidden">
+        Espero que hoy y siempre encuentres
+        motivos para sonreír, Gabriela 🩵🤍
+      </p>
+    </section>
+
+    <div class="footer">
+      Hecho con cariño, especialmente para ti 🤍
+    </div>
+
+  </main>
+
+  <script>
+    function openLetter() {
+      document.getElementById("welcome").classList.add("hidden");
+      document.getElementById("letterSection").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      makePetals();
+    }
+
+    function openGift() {
+      document.getElementById("letterSection").classList.add("hidden");
+      document.getElementById("giftSection").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      makePetals();
+    }
+
+    function showLove() {
+      document.getElementById("finalMessage").classList.remove("hidden");
+      makePetals();
+    }
+
+    function makePetals() {
+      for (let i = 0; i < 22; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.textContent = Math.random() > 0.5 ? "🤍" : "🌸";
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = (3 + Math.random() * 4) + "s";
+        petal.style.fontSize = (14 + Math.random() * 15) + "px";
+
+        document.body.appendChild(petal);
+
+        setTimeout(() => petal.remove(), 7500);
+      }
+    }
+  </script>
+
+</body>
+</html>
