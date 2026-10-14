@@ -767,8 +767,41 @@ Ojalá, cuando vuelvas a ver esta página te saque aunque sea una pequeña sonri
     <div class="card center">
       <p id="resultMessage" style="font-size:1.12rem"></p>
       <p>Y ahora viene una parte que no podía faltar en tu regalo 🩵</p>
-      <button class="btn" onclick="showScreen('song')">Escuchar tu canción</button>
+      <button class="btn" onclick="showScreen('wouldYouRather'); startWouldYouRather()">Jugar: ¿Qué prefieres? 💋</button>
     </div>
+  </main>
+</section>
+
+<!-- MINIJUEGO: ¿QUÉ PREFIERES? -->
+<section id="wouldYouRather" class="screen">
+  <main class="content">
+    <div class="eyebrow">Una preguntita, señorita 👀</div>
+    <h2>¿Qué prefieres? 💋</h2>
+    <p class="intro">A ver qué eliges, preciosa JAJAJA 🩵</p>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center">
+        <span id="ratherNumber" class="eyebrow">Pregunta 1 de 8</span>
+      </div>
+
+      <div class="quiz-progress">
+        <div id="ratherProgress" class="quiz-progress-fill"></div>
+      </div>
+
+      <div id="ratherQuestion" class="question"></div>
+      <div id="ratherAnswers" class="answers"></div>
+      <div id="ratherFeedback" class="feedback" aria-live="polite"></div>
+
+      <div class="center">
+        <button id="ratherNext" class="btn" onclick="nextRatherQuestion()" hidden>
+          Siguiente pregunta
+        </button>
+        <button id="ratherFinish" class="btn" onclick="showScreen('song')" hidden>
+          Escuchar tu canción 🩵
+        </button>
+      </div>
+    </div>
+    <p class="small-note">Aquí no hay respuestas incorrectas, solo quiero saber qué elegirías JAJA 💗</p>
   </main>
 </section>
 
@@ -824,7 +857,7 @@ Ojalá, cuando vuelvas a ver esta página te saque aunque sea una pequeña sonri
         <article class="card">
           <div class="center">
             <svg class="rose rose-small"><use href="#white-rose"/></svg>
-            <h2>Para mi preciosa 🩵</h2>
+            <h2>Para mi reina hermosa 🩵</h2>
           </div>
 
           <div class="letter-text">Y bueno, llegaste hasta el final de este pequeño regalo JAJAJAJA, espero que te haya gustado tanto como a mí me gustó prepararlo para ti
@@ -856,7 +889,7 @@ Te amo muchísimo, Gabriela, feliz cumpleaños otra vez 🩵</div>
 <script>
 const screenIds = [
   'welcome', 'firstLetter', 'gift', 'quiz',
-  'quizResult', 'song', 'garden'
+  'quizResult', 'wouldYouRather', 'song', 'garden'
 ];
 
 function showScreen(id) {
@@ -899,8 +932,8 @@ function openGift() {
 
 const questions = [
   {
-    text: '¿Cuál es la bebida favorita de Gabriela?',
-    options: ['Coca-Cola', 'Monster', 'Fanta', 'Sprite'],
+    text: '¿Qué cosa haces que sabes que me hace renegar?JAJAJ',
+    options: ['Molestarme a propósito para hacerme renegar', 'Ponerme celosa o picarme con algún tema', 'Hacerte la díficil o responderme de una forma que me deje renegando', 'Ninguna mamabicha'],
     correct: 1
   },
   {
@@ -945,6 +978,165 @@ const questions = [
   }
 ];
 
+/* NUEVO MINIJUEGO: ¿QUÉ PREFIERES? */
+const ratherQuestions = [
+  {
+    text: 'Si estuviera contigo ahora mismo...',
+    options: [
+      'Abrazarte y no soltarte en horas',
+      'Llenarte la carita de besitos hasta que te quejes JAJA'
+    ],
+    messages: [
+      'AYYY, después no me vengas con que no te suelto JAJA 🩵',
+      'JAJAJA, tú quieres que termine toda mimada y encima te quejes de mí 😭💋'
+    ]
+  },
+  {
+    text: '¿Cómo intentarías hacerme renegar?',
+    options: [
+      'Dándote celos a propósito porque me divierte tu reacción',
+      'Haciéndome la inocente después de provocarte JAJA'
+    ],
+    messages: [
+      'GABRIELA, TÚ DISFRUTAS VERME RENEGAR, NO TE HAGAS JAJAJA 😭',
+      '¿INOCENTE TÚ? Sí, claro, y yo me lo creo JAJAJA 🩵'
+    ]
+  },
+  {
+    text: 'Si apareciera de sorpresa en Argentina...',
+    options: [
+      'Correría a abrazarte sin pensarlo',
+      'Me haría la tranquila, pero después no te soltaría JAJA'
+    ],
+    messages: [
+      'AYYY, YO TAMPOCO TE SOLTARÍA, PRECIOSA 🩵',
+      'JAJAJA, tú haciéndote la tranquila cuando por dentro estarías gritando 😭'
+    ]
+  },
+  {
+    text: '¿Qué tipo de besito elegirías?',
+    options: [
+      'Uno tierno en la frente',
+      'Uno que empiece tierno y termine poniéndome nerviosa 👀'
+    ],
+    messages: [
+      'Ayyy, mi niña tierna, ven acá que te doy mil de esos 🩵',
+      'GABY???? 👀 JAJAJA, después no me culpes si te pongo más nerviosa'
+    ]
+  },
+  {
+    text: 'Si estuviéramos solitas viendo una película...',
+    options: [
+      'Me quedaría abrazadita a ti toda la película',
+      'No prestaría atención a la película por estar molestándote JAJA'
+    ],
+    messages: [
+      'Qué película ni qué nada, yo estaría feliz teniéndote abrazadita 🩵',
+      'JAJAJA, sabía que contigo no se puede ver ni una película tranquila 😭'
+    ]
+  },
+  {
+    text: 'Si te dijera «ven, quiero darte algo» y te acercara a mí...',
+    options: [
+      'Me acercaría sin preguntar nada',
+      'Te preguntaría qué quieres mientras me acerco igual JAJA'
+    ],
+    messages: [
+      'JAJAJA, ni preguntas haces, tú confías demasiado en mí 👀💋',
+      'TÚ PREGUNTANDO, PERO ACERCÁNDOTE IGUAL JAJAJA 😭'
+    ]
+  },
+  {
+    text: '¿Quién crees que se pondría más nerviosa con un beso inesperado?',
+    options: [
+      'Yo, obviamente',
+      'Tú, porque te haces la valiente pero te conozco JAJA'
+    ],
+    messages: [
+      'JAJAJA, al menos reconoces que te pondrías nerviosa, señorita 💋',
+      '¿YO? JAJAJA, mira quién habla, la que seguro se pondría rojita también 😭🩵'
+    ]
+  },
+  {
+    text: 'Y por último, señorita... si te robara un beso y después me hiciera la inocente, ¿qué harías?',
+    options: [
+      'Te devolvería el beso',
+      'Te reclamaría mientras me río y te pido otro JAJA'
+    ],
+    messages: [
+      'JAJAJA, AH BUENO, ENTONCES NOS BESAMOS Y AQUÍ NO PASÓ NADA 💋🩵',
+      'GABRIELA, ¿RECLAMARME PARA PEDIRME OTRO? TÚ ERES UN CASO JAJAJA 😭🩵'
+    ]
+  }
+];
+
+let ratherIndex = 0;
+let ratherAnswered = false;
+
+function startWouldYouRather() {
+  ratherIndex = 0;
+  ratherAnswered = false;
+  renderRatherQuestion();
+}
+
+function renderRatherQuestion() {
+  ratherAnswered = false;
+  const q = ratherQuestions[ratherIndex];
+
+  document.getElementById('ratherNumber').textContent =
+    'Pregunta ' + (ratherIndex + 1) + ' de ' + ratherQuestions.length;
+
+  document.getElementById('ratherProgress').style.width =
+    (ratherIndex / ratherQuestions.length * 100) + '%';
+
+  document.getElementById('ratherQuestion').textContent = q.text;
+  document.getElementById('ratherFeedback').textContent = '';
+  document.getElementById('ratherNext').hidden = true;
+  document.getElementById('ratherFinish').hidden = true;
+
+  const answers = document.getElementById('ratherAnswers');
+  answers.innerHTML = '';
+
+  q.options.forEach((option, index) => {
+    const button = document.createElement('button');
+    button.className = 'answer';
+    button.textContent = String.fromCharCode(65 + index) + ') ' + option;
+
+    button.addEventListener('click', () => {
+      if (ratherAnswered) return;
+      ratherAnswered = true;
+
+      document.querySelectorAll('#ratherAnswers .answer').forEach(
+        answer => answer.disabled = true
+      );
+
+      button.style.borderColor = '#9cc2e9';
+      button.style.background = '#eff7ff';
+
+      document.getElementById('ratherFeedback').textContent =
+        q.messages[index];
+
+      document.getElementById('ratherProgress').style.width =
+        ((ratherIndex + 1) / ratherQuestions.length * 100) + '%';
+
+      if (ratherIndex === ratherQuestions.length - 1) {
+        document.getElementById('ratherFinish').hidden = false;
+      } else {
+        document.getElementById('ratherNext').hidden = false;
+      }
+    });
+
+    answers.appendChild(button);
+  });
+}
+
+function nextRatherQuestion() {
+  if (!ratherAnswered) return;
+  ratherIndex++;
+  renderRatherQuestion();
+}
+
+/* CUESTIONARIO ORIGINAL */
 let questionIndex = 0;
 let score = 0;
 let answered = false;
@@ -998,7 +1190,7 @@ function selectAnswer(selectedIndex, selectedButton) {
     selectedButton.classList.add('wrong');
     buttons[q.correct].classList.add('correct');
     document.getElementById('feedback').textContent =
-      'NELL JAJAJAJA, la respuesta era ' + q.options[q.correct] + ' 👀';
+      'NELL AMOOOR JAJAJAJA, la respuesta era ' + q.options[q.correct] + ' 👀';
   }
 
   document.getElementById('scoreDisplay').textContent = 'Puntaje: ' + score;
@@ -1029,7 +1221,7 @@ function showResult() {
   let title, message;
 
   if (score === 8) {
-    title = '¡PERFECTA, PRECIOSA!';
+    title = '¡PERFECTO, PRECIOSA!';
     message = 'JAJAJAJA, PERFECTA, PRECIOSA, NO FALLASTE NI UNA 👀🩵';
   } else if (score >= 6) {
     title = '¡Muy bien, Gabriela!';
@@ -1038,7 +1230,7 @@ function showResult() {
     title = 'Tenemos que repasar';
     message = 'JAJAJAJA, TENEMOS QUE REPASAR UNAS COSITAS 👀';
   } else {
-    title = 'NELL JAJAJAJA';
+    title = 'NELL GABRIELAAA JAJAJAJA';
     message = '¿Y SI VOLVEMOS A INTENTARLO? 👀🩵';
   }
 
