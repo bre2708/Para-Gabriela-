@@ -988,7 +988,7 @@ const ratherQuestions = [
     ],
     messages: [
       'AYYY, después no me vengas con que no te suelto JAJA 🩵',
-      'JAJAJA, tú quieres que termine toda mimada y encima te quejes de mí 😭💋'
+      'JAJAJA, tú quieres que termine toda mimada y encima te quejas de mí 😭💋'
     ]
   },
   {
@@ -1010,14 +1010,14 @@ const ratherQuestions = [
     ],
     messages: [
       'AYYY, YO TAMPOCO TE SOLTARÍA, PRECIOSA 🩵',
-      'JAJAJA, tú haciéndote la tranquila cuando por dentro estarías gritando 😭'
+      'JAJAJA, tú haciéndote la tranquila cuando por dentro estarías gritando 😉'
     ]
   },
   {
     text: '¿Qué tipo de besito elegirías?',
     options: [
       'Uno tierno en la frente',
-      'Uno que empiece tierno y termine poniéndome nerviosa 👀'
+      'Uno que empiece tierno y termine poniéndote nerviosa 👀'
     ],
     messages: [
       'Ayyy, mi niña tierna, ven acá que te doy mil de esos 🩵',
@@ -1054,7 +1054,7 @@ const ratherQuestions = [
     ],
     messages: [
       'JAJAJA, al menos reconoces que te pondrías nerviosa, señorita 💋',
-      '¿YO? JAJAJA, mira quién habla, la que seguro se pondría rojita también 😭🩵'
+      '¿YO? JAJAJA, mira quién habla, la que seguro se pondría rojita tmb 😭🩵'
     ]
   },
   {
@@ -1130,11 +1130,14 @@ function renderRatherQuestion() {
   });
 }
 
+
 function nextRatherQuestion() {
   if (!ratherAnswered) return;
+  if (ratherIndex >= ratherQuestions.length - 1) return;
   ratherIndex++;
   renderRatherQuestion();
 }
+
 
 /* CUESTIONARIO ORIGINAL */
 let questionIndex = 0;
@@ -1222,7 +1225,7 @@ function showResult() {
 
   if (score === 8) {
     title = '¡PERFECTO, PRECIOSA!';
-    message = 'JAJAJAJA, PERFECTA, PRECIOSA, NO FALLASTE NI UNA 👀🩵';
+    message = 'JAJAJAJA, PERFECTO, PRECIOSA, NO FALLASTE NI UNA 👀🩵';
   } else if (score >= 6) {
     title = '¡Muy bien, Gabriela!';
     message = 'MUY BIENNN, GABRIELA, CASI PERFECTA JAJAJA 🩵';
