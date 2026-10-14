@@ -3,1080 +3,1058 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#527fbd">
-<title>Para Gabriela 💙</title>
+<meta name="theme-color" content="#eaf5ff">
+<title>Para Gabriela 🩵</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --navy: #102f59;
-    --navy2: #0a2242;
-    --blue: #527fbd;
-    --pale: #eaf3ff;
-    --white: #fff;
+  --blue: #8dbce9;
+  --blue-dark: #31577f;
+  --blue-light: #d5e7f8;
+  --white: #fff;
+  --ink: #42556b;
+  --muted: #74869b;
+  --pink: #f4e8ed;
 }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family: Georgia, "Times New Roman", serif;
-    color: #24466f;
-    text-align: center;
-    background: linear-gradient(145deg, #739bd1, #527fbd 55%, #eaf1fc);
-    background-attachment: fixed;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: linear-gradient(145deg, #dceafa, #c4dcf4 55%, #e7e9f7);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
 }
 
-main {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px 13px 45px;
+button { font: inherit; }
+
+button:focus-visible {
+  outline: 3px solid #426c98;
+  outline-offset: 4px;
 }
 
 .screen {
-    display: none;
-    width: 100%;
-    max-width: 620px;
-    animation: appear .65s ease;
+  display: none;
+  position: relative;
+  min-height: 100vh;
+  padding: 36px 18px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .screen.active {
-    display: block;
+  display: flex;
+  animation: fadeIn .8s ease both;
 }
 
-@keyframes appear {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.card {
-    padding: 28px 21px;
-    border: 2px solid rgba(255,255,255,.9);
-    border-radius: 26px;
-    background: rgba(255,255,255,.96);
-    box-shadow: 0 14px 40px rgba(12,38,74,.25);
+.content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 690px);
+  margin: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--blue-dark);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: .73rem;
+  font-weight: 800;
+}
+
+h1, h2, h3, .letter-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 h1 {
-    color: var(--navy);
-    font-size: clamp(34px, 8vw, 48px);
-    margin: 10px 0;
+  font-size: clamp(3rem, 9vw, 5.4rem);
+  line-height: .98;
+  font-weight: 500;
+  color: #426b98;
+  margin: 20px 0;
 }
 
 h2 {
-    color: var(--navy);
-    font-size: clamp(25px, 6vw, 34px);
+  color: #426b98;
+  font-size: clamp(2.1rem, 6vw, 3.3rem);
+  font-weight: 500;
+  line-height: 1.05;
+  margin: 15px 0;
+}
+
+h3 {
+  color: #426b98;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 p {
-    font-size: 17px;
-    line-height: 1.8;
+  line-height: 1.85;
 }
 
-.subtitle {
-    color: #607fa5;
+.intro {
+  max-width: 470px;
+  margin: 0 auto 28px;
+  color: #647b95;
+  font-size: 1.02rem;
 }
-
-.emoji-title {
-    font-size: 48px;
-    margin: 8px 0;
-}
-
-/* BOTONES AZUL OSCURO */
 
 .btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 3;
-    max-width: 100%;
-    min-height: 51px;
-    margin: 12px 4px 5px;
-    padding: 13px 22px;
-    border: 2px solid #fff;
-    border-radius: 40px;
-    background: #0b2e59;
-    color: #fff;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 1.4;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 5px 0 #061a34, 0 7px 15px #102f5933;
-    transition: transform .2s, background .2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #527eae, #365e8c);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 9px 24px #426c9845;
+  transition: transform .25s, box-shadow .25s;
 }
 
 .btn:hover {
-    background: #1b477c;
-    transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 13px 28px #31577f60;
 }
 
-.btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #061a34;
+.btn.secondary {
+  background: white;
+  color: #527ba7;
+  border: 1px solid #d8e8f8;
+  box-shadow: none;
 }
 
-.button-area {
-    margin-top: 20px;
+.btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.footer {
-    margin-top: 24px;
-    font-size: 13px;
-    color: #7187a4;
+.small-note {
+  font-size: .84rem;
+  color: var(--muted);
 }
 
-/* PÉTALOS BLANCOS */
-
-.petal {
-    position: fixed;
-    top: -35px;
-    z-index: 0;
-    pointer-events: none;
-    color: #fff;
-    font-size: 23px;
-    text-shadow: 0 1px 4px #24466f, 0 0 7px #fff;
-    animation: falling linear forwards;
+.card {
+  width: min(100%, 650px);
+  margin: 20px auto;
+  padding: clamp(23px, 5vw, 42px);
+  background: #ffffffdb;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 18px 60px #759ac21a;
+  backdrop-filter: blur(10px);
+  text-align: left;
 }
 
-@keyframes falling {
-    to {
-        transform: translateY(110vh) rotate(600deg);
-        opacity: .15;
-    }
+.card .center { text-align: center; }
+
+.rose {
+  width: 105px;
+  height: 105px;
+  color: #fff;
+  filter: drop-shadow(0 8px 12px #7c9fbb30);
 }
 
-/* SOBRE INTERACTIVO */
+.rose-small {
+  width: 54px;
+  height: 54px;
+}
 
+.rose-cluster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin: 0 auto 8px;
+}
+
+.rose-cluster .rose:nth-child(2) {
+  width: 135px;
+  height: 135px;
+  margin: 0 -12px;
+}
+
+.corner-rose {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  opacity: .82;
+  pointer-events: none;
+}
+
+.corner-rose.left {
+  top: 12px;
+  left: -25px;
+  transform: rotate(-22deg);
+}
+
+.corner-rose.right {
+  right: -25px;
+  bottom: 12px;
+  transform: rotate(28deg);
+}
+
+.falling-petal {
+  position: fixed;
+  z-index: 5;
+  top: -35px;
+  width: 13px;
+  height: 19px;
+  border-radius: 90% 10% 90% 10%;
+  background: linear-gradient(140deg, #fff, #e7edf8);
+  box-shadow: 0 2px 5px #9ab3d022;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-5vh) rotate(0deg); opacity: 0; }
+  10% { opacity: .9; }
+  90% { opacity: .8; }
+  100% { transform: translate(60px, 110vh) rotate(650deg); opacity: 0; }
+}
+
+/* Primer sobre */
 .envelope-area {
-    padding: 25px 0;
-    perspective: 800px;
+  perspective: 1000px;
+  margin: 32px auto 18px;
+  width: min(310px, 85vw);
+  height: 205px;
+  position: relative;
 }
 
 .envelope {
-    width: min(280px, 85%);
-    height: 175px;
-    margin: 22px auto;
-    position: relative;
-    cursor: pointer;
-    filter: drop-shadow(0 9px 9px #17365e33);
-    -webkit-tap-highlight-color: transparent;
+  position: absolute;
+  inset: 20px 0 0;
+  height: 170px;
+  background: #dceafa;
+  border-radius: 8px;
+  box-shadow: 0 18px 35px #698eb529;
+  cursor: pointer;
 }
 
-.envelope-back {
-    position: absolute;
-    inset: 0;
-    background: #a9c9ed;
-    border: 2px solid #6c91c2;
-    border-radius: 8px;
+.envelope::before,
+.envelope::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
 }
 
-.envelope-paper {
-    position: absolute;
-    left: 8%;
-    top: 8%;
-    width: 84%;
-    height: 82%;
-    padding: 18px 8px;
-    background: #fffdfd;
-    color: #23466f;
-    font-size: 18px;
-    transition: transform .8s ease;
+.envelope::before {
+  background: #c6dcf4;
+  clip-path: polygon(0 0, 50% 58%, 100% 0);
+  z-index: 3;
+  transform-origin: top;
+  transition: transform .9s ease, z-index .1s .45s;
 }
 
-.envelope-flap {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    background: #d3e6fc;
-    clip-path: polygon(0 0, 100% 0, 50% 65%);
-    transform-origin: top;
-    transition: transform .7s ease;
+.envelope::after {
+  background: #edf5ff;
+  clip-path: polygon(0 100%, 0 0, 50% 57%, 100% 0, 100% 100%);
+  z-index: 2;
 }
 
-.envelope-front {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: #b9d5f4;
-    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
-    border-radius: 6px;
+.envelope.open::before {
+  transform: rotateX(180deg);
+  z-index: 1;
 }
 
-.envelope-seal {
-    position: absolute;
-    z-index: 4;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 43px;
-    height: 43px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: #0b2e59;
-    color: white;
-    border: 2px solid white;
-    font-size: 21px;
-    transition: opacity .3s;
+.envelope-heart {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 57%;
+  transform: translate(-50%, -50%);
+  color: #729fce;
+  font-size: 29px;
+  transition: opacity .3s;
 }
 
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-    z-index: 0;
+.envelope.open .envelope-heart { opacity: 0; }
+
+.letter-sheet {
+  position: absolute;
+  z-index: 1;
+  left: 8%;
+  bottom: 4px;
+  width: 84%;
+  height: 155px;
+  background: #fff;
+  border-radius: 5px;
+  transition: transform 1s .2s ease, height 1s .2s ease;
+  box-shadow: 0 2px 10px #7188a51c;
 }
 
-.envelope.open .envelope-paper {
-    transform: translateY(-70px);
+.envelope.open .letter-sheet {
+  transform: translateY(-100px);
+  height: 180px;
 }
 
-.envelope.open .envelope-seal {
-    opacity: 0;
+.letter-reveal {
+  display: none;
+  animation: fadeIn .9s ease both;
 }
 
-.open-hint {
-    color: #6884a7;
-    font-size: 14px;
+.letter-reveal.visible { display: block; }
+
+.letter-text {
+  white-space: pre-line;
+  font-size: 1.2rem;
+  line-height: 1.68;
+  color: #536a84;
 }
 
-.letter {
-    margin: 20px 0;
-    padding: 22px 20px;
-    border: 1px solid #dce7f5;
-    border-radius: 18px;
-    background: #fffdfd;
-    text-align: left;
-    box-shadow: inset 0 0 15px #a6c4e514;
+.letter-text .signoff {
+  text-align: center;
+  color: #527ba7;
+  font-weight: 600;
+  margin-top: 25px;
 }
 
-.letter p {
-    font-size: 17px;
-}
-
-.signature {
-    text-align: right;
-    color: #315b89;
-    font-style: italic;
-    margin-top: 23px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* REGALO INTERACTIVO */
-
-.gift-area {
-    padding: 18px 0 10px;
-}
-
-.gift {
-    position: relative;
-    width: 175px;
-    height: 165px;
-    margin: 30px auto 12px;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+/* Regalo */
+.gift-scene {
+  width: 180px;
+  height: 170px;
+  margin: 25px auto;
+  position: relative;
+  cursor: pointer;
 }
 
 .gift-box {
-    position: absolute;
-    bottom: 0;
-    left: 12px;
-    width: 151px;
-    height: 105px;
-    background: #9dbfe9;
-    border: 3px solid #fff;
-    border-radius: 5px 5px 12px 12px;
-    box-shadow: 0 8px 14px #17365e30;
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  bottom: 10px;
+  left: 15px;
+  border-radius: 7px;
+  background: #a9ccec;
+  box-shadow: 0 15px 25px #759ac233;
 }
 
 .gift-box::before {
-    content: "";
-    position: absolute;
-    left: 60px;
-    top: 0;
-    height: 100%;
-    width: 25px;
-    background: #fff;
+  content: "";
+  position: absolute;
+  left: 60px;
+  top: 0;
+  height: 100%;
+  width: 30px;
+  background: #f7faff;
 }
 
 .gift-lid {
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    top: 35px;
-    width: 175px;
-    height: 32px;
-    border: 3px solid #fff;
-    border-radius: 7px;
-    background: #315d95;
-    transform-origin: 12% 100%;
-    transition: transform .8s ease;
+  position: absolute;
+  left: 5px;
+  top: 48px;
+  width: 170px;
+  height: 28px;
+  background: #85b2e1;
+  border-radius: 6px;
+  z-index: 2;
+  transition: transform .7s ease;
+}
+
+.gift-lid::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 28px;
+  left: 70px;
+  background: #f7faff;
 }
 
 .gift-bow {
-    position: absolute;
-    top: 0;
-    left: 56px;
-    z-index: 3;
-    font-size: 49px;
-    transition: transform .8s ease;
+  position: absolute;
+  top: 15px;
+  left: 70px;
+  width: 40px;
+  height: 30px;
+  border: 8px solid #fff;
+  border-radius: 50% 50% 20% 50%;
+  z-index: 3;
+  transition: transform .7s ease;
 }
 
-.gift.open .gift-lid {
-    transform: translate(-35px, -42px) rotate(-25deg);
+.gift-bow::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: -5px;
+  width: 40px;
+  height: 30px;
+  border: 8px solid #fff;
+  border-radius: 50% 50% 50% 20%;
 }
 
-.gift.open .gift-bow {
-    transform: translate(-25px, -45px) rotate(-25deg);
+.gift-scene.open .gift-lid {
+  transform: translate(-15px, -55px) rotate(-13deg);
 }
 
-.gift-note {
-    display: none;
-    color: #315b89;
-    font-weight: bold;
-    animation: appear .7s ease;
+.gift-scene.open .gift-bow {
+  transform: translateY(-48px) rotate(-12deg);
 }
 
-.gift-note.show {
-    display: block;
+/* Cuestionario */
+.quiz-progress {
+  width: 100%;
+  height: 7px;
+  border-radius: 10px;
+  background: #e2edf9;
+  margin: 18px 0 25px;
+  overflow: hidden;
 }
 
-/* QUIZ */
-
-.progress {
-    height: 8px;
-    background: #e1eaf6;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress-inner {
-    height: 100%;
-    background: #0b2e59;
-    width: 0;
-    transition: width .3s;
+.quiz-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #7eaddd;
+  transition: width .3s;
 }
 
 .question {
-    margin: 22px 0;
-    font-size: 21px;
-    line-height: 1.6;
-    font-weight: bold;
+  color: #496b91;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.5;
+  margin: 18px 0;
 }
 
 .answers {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 11px;
-    margin: 18px 0;
+  display: grid;
+  gap: 11px;
+  margin: 20px 0;
 }
 
 .answer {
-    padding: 15px;
-    border: 2px solid #b8cde7;
-    border-radius: 14px;
-    background: #f1f6ff;
-    color: #193d69;
-    font-family: inherit;
-    font-size: 16px;
-    cursor: pointer;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #dce9f7;
+  border-radius: 14px;
+  background: #fff;
+  color: #526c88;
+  text-align: left;
+  cursor: pointer;
+  transition: background .2s, border .2s;
 }
 
-.answer:disabled {
-    opacity: 1;
+.answer:hover:not(:disabled) {
+  background: #eff7ff;
+  border-color: #9cc2e9;
+}
+
+.answer.correct {
+  border-color: #78b69b;
+  background: #eef9f3;
+}
+
+.answer.wrong {
+  border-color: #dba9b5;
+  background: #fff2f4;
 }
 
 .feedback {
-    min-height: 28px;
-    color: #315b89;
-    font-weight: bold;
-    line-height: 1.6;
+  min-height: 30px;
+  color: #527ba7;
+  font-weight: 800;
 }
 
-/* CANCIÓN */
-
-.spotify-box {
-    overflow: hidden;
-    margin: 23px 0;
-    border-radius: 15px;
-    border: 2px solid #d4e3f6;
+.song-card {
+  text-align: center;
 }
 
-.spotify-box iframe {
-    display: block;
-    width: 100%;
-    border: 0;
+.spotify-frame {
+  width: 100%;
+  height: 152px;
+  border: 0;
+  border-radius: 14px;
+  margin: 18px 0;
 }
 
-/* ROSAS BLANCAS ILUSTRADAS */
+.song-disc {
+  width: 125px;
+  height: 125px;
+  margin: 25px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #f8fbff 0 8%, #8dbce9 9% 13%, #d5e7f8 14% 22%, #719fd2 23% 30%, #e4effb 31% 43%, #8dbce9 44% 55%, #d4e7f9 56% 70%, #fff 71%);
+  box-shadow: 0 12px 35px #759ac233;
+  animation: turn 8s linear infinite;
+}
+
+@keyframes turn { to { transform: rotate(360deg); } }
 
 .garden {
-    padding: 22px 12px;
-    margin: 20px 0;
-    border: 1px solid #dce8f7;
-    border-radius: 20px;
-    background: linear-gradient(#edf5ff, #fff);
+  position: relative;
+  padding: 30px 0 15px;
 }
 
-.rose-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 4px;
-    margin: 10px auto 20px;
+.garden-roses {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 3px;
+  margin: 15px auto;
 }
 
-.rose-svg {
-    width: 85px;
-    max-width: 28%;
-    height: 155px;
-    overflow: visible;
-    filter: drop-shadow(0 3px 2px #8ca8c233);
-    animation: sway 3s ease-in-out infinite;
-    transform-origin: bottom center;
+.garden-roses .rose:nth-child(1),
+.garden-roses .rose:nth-child(3) {
+  width: 80px;
+  height: 80px;
 }
 
-.rose-svg:nth-child(2) {
-    height: 185px;
-    animation-delay: -.8s;
+.garden-roses .rose:nth-child(2) {
+  width: 125px;
+  height: 125px;
 }
 
-.rose-svg:nth-child(3) {
-    animation-delay: -1.5s;
+.secret-envelope {
+  width: min(300px, 85vw);
+  height: 180px;
+  margin: 28px auto;
+  position: relative;
+  background: #e7f1fd;
+  border-radius: 7px;
+  box-shadow: 0 15px 35px #759ac233;
+  cursor: pointer;
 }
 
-@keyframes sway {
-    0%, 100% { transform: rotate(-2deg); }
-    50% { transform: rotate(3deg); }
+.secret-envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #c8def5;
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+  transform-origin: top;
+  transition: transform .9s, z-index .1s .45s;
+  z-index: 3;
 }
 
-.white-rose {
-    fill: #fff;
-    stroke: #9bb2d1;
-    stroke-width: 1.7;
-    stroke-linejoin: round;
+.secret-envelope::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f2f7ff;
+  clip-path: polygon(0 100%, 0 0, 50% 57%, 100% 0, 100% 100%);
+  z-index: 2;
 }
 
-.rose-center {
-    fill: #fff;
-    stroke: #a6bad4;
-    stroke-width: 1.5;
+.secret-envelope.open::before {
+  transform: rotateX(180deg);
+  z-index: 1;
 }
 
-.leaf {
-    fill: #60967d;
-    stroke: #477b65;
-    stroke-width: 1.3;
+.secret-envelope .seal {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 57%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #6c99ca;
+  font-size: 1.3rem;
+  transition: opacity .3s;
 }
 
-.stem {
-    stroke: #52876c;
-    stroke-width: 4;
-    stroke-linecap: round;
-    fill: none;
-}
+.secret-envelope.open .seal { opacity: 0; }
 
 .secret-letter {
-    display: none;
-    padding: 22px 19px;
-    margin-top: 20px;
-    border: 1px solid #d6e4f5;
-    border-radius: 18px;
-    background: #fffdfd;
-    text-align: left;
-    animation: appear .7s ease;
+  display: none;
+  animation: fadeIn 1s ease both;
 }
 
-.secret-letter.open {
-    display: block;
+.secret-letter.visible { display: block; }
+
+.footer-note {
+  margin-top: 30px;
+  font-size: .82rem;
+  color: #8a9bb0;
 }
 
-@media (max-width: 400px) {
-    .card { padding: 23px 15px; }
-    p { font-size: 16px; }
-    .btn { padding: 12px 17px; font-size: 15px; }
+@media (max-width: 480px) {
+  .screen { padding: 28px 15px; }
+  .card { padding: 23px 19px; border-radius: 20px; }
+  .letter-text { font-size: 1.08rem; }
+  .corner-rose { width: 85px; height: 85px; }
+  .intro { font-size: .97rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<main>
+<!-- Ilustración floral original en SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="white-rose" viewBox="0 0 120 140">
+      <path d="M58 75 C61 98 54 119 46 135" stroke="#739c83" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M54 111 C34 92 19 103 28 117 C38 123 47 119 54 111Z" fill="#a9cbb4"/>
+      <path d="M52 96 C73 81 87 91 79 104 C68 110 59 104 52 96Z" fill="#b7d5bf"/>
+      <g stroke="#dfe5ed" stroke-width="1.4">
+        <ellipse cx="59" cy="48" rx="18" ry="31" fill="#fff" transform="rotate(-2 59 48)"/>
+        <ellipse cx="43" cy="54" rx="17" ry="27" fill="#fafcff" transform="rotate(-42 43 54)"/>
+        <ellipse cx="75" cy="54" rx="17" ry="27" fill="#f9fbff" transform="rotate(42 75 54)"/>
+        <ellipse cx="47" cy="38" rx="16" ry="25" fill="#fff" transform="rotate(-38 47 38)"/>
+        <ellipse cx="72" cy="38" rx="16" ry="25" fill="#f9fbff" transform="rotate(38 72 38)"/>
+        <ellipse cx="60" cy="32" rx="15" ry="23" fill="#fff"/>
+        <ellipse cx="60" cy="53" rx="24" ry="22" fill="#fff" transform="rotate(-10 60 53)"/>
+        <ellipse cx="60" cy="52" rx="15" ry="17" fill="#f5f8fc"/>
+        <path d="M52 53 C48 44 57 39 64 43 C72 47 66 56 59 56 C54 56 54 49 59 48 C64 47 65 52 61 53" fill="none" stroke="#d3dce8" stroke-width="2.4" stroke-linecap="round"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
 
-<!-- 1. BIENVENIDA -->
-<section class="screen active" id="inicio">
-    <div class="card">
-        <div class="emoji-title">💌</div>
-        <p class="subtitle">Un pequeño detalle hecho con cariño</p>
-        <h1>Para Gabriela</h1>
-        <p>
-            Hay regalos que se pueden envolver,
-            y hay otros que se preparan con el corazón 🩵
-        </p>
-        <p>Preparé algo especialmente para ti</p>
+<div id="petals" aria-hidden="true"></div>
 
-        <div class="button-area">
-            <button class="btn" onclick="showScreen('sobre')">
-                Descubre tu sorpresa 💌
-            </button>
-        </div>
+<!-- PANTALLA 1: BIENVENIDA -->
+<section id="welcome" class="screen active">
+  <svg class="corner-rose left"><use href="#white-rose"/></svg>
+  <svg class="corner-rose right"><use href="#white-rose"/></svg>
 
-        <div class="footer">Hecho especialmente para ti 🩵</div>
+  <main class="content">
+    <div class="rose-cluster" aria-hidden="true">
+      <svg class="rose rose-small"><use href="#white-rose"/></svg>
+      <svg class="rose"><use href="#white-rose"/></svg>
+      <svg class="rose rose-small"><use href="#white-rose"/></svg>
     </div>
+
+    <div class="eyebrow">Un detalle hecho con amor</div>
+    <h1>Para Gabriela</h1>
+    <p class="intro">
+      Hay regalos que se pueden envolver, y hay otros que se preparan con el corazón 🩵
+    </p>
+    <button class="btn" onclick="showScreen('firstLetter')">
+      Tengo una sorpresa para ti
+    </button>
+    <p class="small-note">Hecho especialmente para ti, preciosa</p>
+  </main>
 </section>
 
+<!-- PANTALLA 2: PRIMER SOBRE -->
+<section id="firstLetter" class="screen">
+  <main class="content">
+    <div class="eyebrow">Unas palabras para ti</div>
+    <h2>Antes de empezar...</h2>
+    <p class="intro">Hay algo que quiero que leas primero, preciosa</p>
 
-<!-- 2. SOBRE QUE SE ABRE AL TOCAR -->
-<section class="screen" id="sobre">
-    <div class="card">
-        <h2>Tienes una cartita</h2>
-        <p>Primero tienes que abrirla, preciosa 🤍</p>
-
-        <div class="envelope-area">
-            <div class="envelope" id="envelope" onclick="openEnvelope()">
-                <div class="envelope-back"></div>
-                <div class="envelope-paper">Una cartita para ti 💌</div>
-                <div class="envelope-flap"></div>
-                <div class="envelope-front"></div>
-                <div class="envelope-seal">🤍</div>
-            </div>
-            <div class="open-hint" id="envelopeHint">
-                Toca el sobre para abrirlo 👆
-            </div>
-        </div>
-
-        <div id="firstLetter" class="hidden">
-            <div class="letter">
-                <p>Preciosa,</p>
-
-                <p>
-                    Quería hacer algo diferente para ti, algo que no fuera
-                    solamente un mensaje más en el celular
-                </p>
-
-                <p>
-                    Por eso preparé esta pequeña sorpresa, para que puedas
-                    descubrir cada parte a tu ritmo y tengas un rinconcito
-                    hecho especialmente para ti
-                </p>
-
-                <p>
-                    Quizá no pueda estar a tu lado físicamente ahora,
-                    pero eso no significa que no pueda buscar maneras
-                    de hacerte sentir especial
-                </p>
-
-                <p>
-                    Espero que disfrutes cada detalle, porque lo hice
-                    pensando en ti 🩵
-                </p>
-
-                <p class="signature">Con mucho cariño 🩵</p>
-            </div>
-
-            <button class="btn" onclick="showScreen('regalo')">
-                Todavía hay más para ti 🎁
-            </button>
-        </div>
+    <div class="envelope-area">
+      <div id="firstEnvelope" class="envelope" role="button" tabindex="0"
+           aria-label="Abrir el sobre de la primera carta" onclick="openFirstEnvelope()"
+           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openFirstEnvelope()}">
+        <div class="letter-sheet"></div>
+        <div class="envelope-heart">🩵</div>
+      </div>
     </div>
+
+    <p id="firstHint" class="small-note">Toca el sobre para abrirlo</p>
+
+    <div id="firstLetterReveal" class="letter-reveal">
+      <article class="card">
+        <div class="center">
+          <svg class="rose rose-small"><use href="#white-rose"/></svg>
+          <h2>Feliz cumpleaños, preciosa</h2>
+        </div>
+        <div class="letter-text">Feliz cumpleaños preciosaa 🩵
+
+Hoy quiero recordarte lo especial que eres para mi y desearte un nuevo año lleno de momentos bonitos, tranquilidad, amor y muchas razones para que saques esa sonrisa bella que tienes reina.
+
+Espero que la vida te sorprenda de muchas maneras, que puedas cumplir todos tus sueños y que nunca te falten personas que te quieran de vdd.
+
+Preparé este pequeño detalle con mucho amor, porque quería regalarte algo diferente y que pudieras guardar y llevarlo para todos lados y tenerlo como un recuerdo bonito.
+
+Superaremos todos los obstáculos que la vida nos ponga si es que tu me lo permites, eres mi persona, espero yo tmb ser la tuya, quiero todo contigo, Preciosa eres una persona muy especial y única, haces cambiar a las personas, y sino mira lo que te estoy haciendo reina, nadie lo creería lit, te amoooo preciosa muchísimo 🩵.
+
+Ojalá, cuando vuelvas a ver esta página te saque aunque sea una pequeña sonrisa 🩵.</div>
+        <p class="letter-text signoff">Con mucho amor, para ti 🩵</p>
+      </article>
+      <div class="center">
+        <button class="btn" onclick="showScreen('gift')">Continuar con tu regalo</button>
+      </div>
+    </div>
+  </main>
 </section>
 
+<!-- PANTALLA 3: EL REGALO Y SU HISTORIA -->
+<section id="gift" class="screen">
+  <main class="content">
+    <div class="eyebrow">Un pequeño recuerdo</div>
+    <h2>¿Quién diría, preciosa?</h2>
+    <p class="intro">Hay comienzos que una no se espera y que terminan significando muchísimo</p>
 
-<!-- 3. REGALO QUE SE ABRE AL TOCAR -->
-<section class="screen" id="regalo">
-    <div class="card">
-        <h2>Un regalito para ti</h2>
-        <p>¿Qué habrá dentro? 👀</p>
-
-        <div class="gift-area">
-            <div class="gift" id="gift" onclick="openGift()">
-                <div class="gift-bow">🎀</div>
-                <div class="gift-lid"></div>
-                <div class="gift-box"></div>
-            </div>
-
-            <p class="open-hint" id="giftHint">
-                Toca la cajita para abrirla 🎁
-            </p>
-
-            <p class="gift-note" id="giftNote">
-                ¡Sorpresaaaa! JAJAJA 🩵
-            </p>
-        </div>
-
-        <div id="giftContinue" class="hidden">
-            <p>Y ahora viene una pequeña prueba 👀</p>
-            <button class="btn" onclick="startQuiz()">
-                Vamos a jugar 💙
-            </button>
-        </div>
+    <div id="giftScene" class="gift-scene" role="button" tabindex="0"
+         aria-label="Abrir el regalo" onclick="openGift()"
+         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGift()}">
+      <div class="gift-box"></div>
+      <div class="gift-lid"></div>
+      <div class="gift-bow"></div>
     </div>
+
+    <p id="giftHint" class="small-note">Toca la cajita para abrirla</p>
+
+    <div id="giftMessage" class="card" hidden>
+      <p>Y pensar que todo esto empezó por un grupo de wsp JAJAJAJA, quién diría que de algo tan simple terminarías convirtiéndote en una persona tan especial para mí, preciosa 🩵</p>
+      <p>Eres re especial para mí, reina, y quería hacerte algo diferente para que tengas un recuerdito bonito de mí</p>
+      <p>Y sí, también tenía que poner esa canción que siempre me dices que eres JAJAJAJA, porque obvio no podía faltar en tu regalo 🩵</p>
+      <p><strong>Te amoooo, preciosa</strong></p>
+      <div class="center">
+        <button class="btn" onclick="startQuiz()">Vamos con unas preguntitas</button>
+      </div>
+    </div>
+  </main>
 </section>
 
+<!-- PANTALLA 4: CUESTIONARIO -->
+<section id="quiz" class="screen">
+  <main class="content">
+    <div class="eyebrow">A ver cuánto recuerdas</div>
+    <h2>Un pequeño desafío</h2>
+    <p class="intro">Ocho preguntitas sobre ti y nuestra historia, preciosa 👀</p>
 
-<!-- 4. QUIZ -->
-<section class="screen" id="quiz">
     <div class="card">
-        <div class="emoji-title">💙</div>
-        <h2>¿Cuánto recuerdas?</h2>
-        <p>Un mini quiz sobre algunas cositas tuyas JAJAJA</p>
-
-        <div class="progress">
-            <div class="progress-inner" id="progress"></div>
-        </div>
-
-        <p class="subtitle" id="questionNumber">Pregunta 1 de 8</p>
-        <div class="question" id="questionText"></div>
-        <div class="answers" id="answers"></div>
-        <div class="feedback" id="feedback"></div>
-
-        <button class="btn hidden" id="nextQuestion" onclick="nextQuestion()">
-            Siguiente pregunta 💙
-        </button>
-
-        <div id="quizResult" class="hidden">
-            <h2>¡Terminaste! 🩵</h2>
-            <p id="scoreText"></p>
-            <p>
-                Gracias por seguir descubriendo cada parte
-                de este regalito JAJAJA
-            </p>
-            <button class="btn" onclick="showScreen('cancion')">
-                Hay algo más para ti 🎶
-            </button>
-        </div>
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center">
+        <span id="questionNumber" class="eyebrow">Pregunta 1 de 8</span>
+        <span id="scoreDisplay" class="small-note">Puntaje: 0</span>
+      </div>
+      <div class="quiz-progress"><div id="progressFill" class="quiz-progress-fill"></div></div>
+      <div id="questionText" class="question"></div>
+      <div id="answers" class="answers"></div>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+      <div class="center">
+        <button id="nextQuestion" class="btn" onclick="nextQuestion()" hidden>Siguiente pregunta</button>
+      </div>
     </div>
+    <p class="small-note">Cada pregunta cuenta, pero lo importante es que te diviertas 🩵</p>
+  </main>
 </section>
 
-
-<!-- 5. CANCIÓN -->
-<section class="screen" id="cancion">
-    <div class="card">
-        <div class="emoji-title">🎶</div>
-        <h2>Una canción para ti</h2>
-
-        <p>
-            También quería dejarte esta canción para que puedas escucharla
-            mientras sigues con tu regalito
-        </p>
-
-        <div class="spotify-box">
-            <iframe
-                src="https://open.spotify.com/embed/track/2SPBFiD8iITb8CKJGz1TEQ?utm_source=generator&theme=0"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy">
-            </iframe>
-        </div>
-
-        <p class="subtitle">Espero que la disfrutes, preciosa 🩵</p>
-
-        <button class="btn" onclick="showScreen('rosas')">
-            Hay otra cosita 🤍
-        </button>
+<!-- PANTALLA 5: RESULTADO DEL CUESTIONARIO -->
+<section id="quizResult" class="screen">
+  <main class="content">
+    <svg class="rose"><use href="#white-rose"/></svg>
+    <div class="eyebrow">Terminaste el desafío</div>
+    <h2 id="resultTitle">¡Muy bien!</h2>
+    <p id="resultScore" class="intro"></p>
+    <div class="card center">
+      <p id="resultMessage" style="font-size:1.12rem"></p>
+      <p>Y ahora viene una parte que no podía faltar en tu regalo 🩵</p>
+      <button class="btn" onclick="showScreen('song')">Escuchar tu canción</button>
     </div>
+  </main>
 </section>
 
+<!-- PANTALLA 6: CANCIÓN -->
+<section id="song" class="screen">
+  <main class="content">
+    <div class="eyebrow">Una canción muy tuya</div>
+    <h2>111</h2>
+    <p class="intro">Yan Block</p>
 
-<!-- 6. JARDÍN DE ROSAS BLANCAS REALES EN SVG -->
-<section class="screen" id="rosas">
-    <div class="card">
-        <div class="emoji-title">🤍</div>
-        <h2>Un jardín para ti</h2>
+    <div class="card song-card">
+      <div class="song-disc" aria-hidden="true"></div>
+      <p>Y cómo no iba a estar tu canción aquí, preciosa JAJAJAJA, si siempre me dices que eres esta canción 🩵</p>
+      <p>Así que ahora también tendrá su pequeño lugar en este regalo, para que puedas escucharla cada vez que quieras</p>
 
-        <p>
-            Sé que te gustan las rosas blancas,
-            así que no podían faltar en tu regalito 🤍
-        </p>
+      <iframe
+        class="spotify-frame"
+        src="https://open.spotify.com/embed/track/2SPBFiD8iITb8CKJGz1TEQ?utm_source=generator&theme=0"
+        title="Reproductor de Spotify: 111, Yan Block"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
 
-        <div class="garden">
-            <div class="rose-row">
+      <p class="small-note">Si no comienza, toca reproducir en el reproductor de Spotify</p>
+      <button class="btn" onclick="showScreen('garden')">Todavía queda una sorpresa</button>
+    </div>
+  </main>
+</section>
 
-                <!-- ROSA BLANCA 1 -->
-                <svg class="rose-svg" viewBox="0 0 100 180"
-                     xmlns="http://www.w3.org/2000/svg" aria-label="Rosa blanca">
-                    <path class="stem" d="M50 77 Q46 118 51 169"/>
-                    <path class="leaf" d="M49 123 Q20 91 17 116 Q28 138 49 123Z"/>
-                    <path class="leaf" d="M51 145 Q79 111 83 136 Q70 157 51 145Z"/>
-                    <g>
-                        <ellipse class="white-rose" cx="50" cy="46" rx="19" ry="30"/>
-                        <ellipse class="white-rose" cx="34" cy="53" rx="18" ry="24" transform="rotate(-40 34 53)"/>
-                        <ellipse class="white-rose" cx="66" cy="53" rx="18" ry="24" transform="rotate(40 66 53)"/>
-                        <ellipse class="white-rose" cx="39" cy="68" rx="17" ry="19" transform="rotate(-25 39 68)"/>
-                        <ellipse class="white-rose" cx="61" cy="68" rx="17" ry="19" transform="rotate(25 61 68)"/>
-                        <ellipse class="white-rose" cx="50" cy="62" rx="15" ry="18"/>
-                        <path class="rose-center" d="M45 55 Q60 43 57 59 Q54 69 44 64 Q38 57 48 52"/>
-                    </g>
-                </svg>
+<!-- PANTALLA 7: JARDÍN Y SEGUNDO SOBRE -->
+<section id="garden" class="screen">
+  <main class="content">
+    <div class="eyebrow">Un último detallito</div>
+    <h2>Un jardín para ti</h2>
+    <p class="intro">Preciosa, todavía queda una cosita más para ti 🩵</p>
 
-                <!-- ROSA BLANCA 2 -->
-                <svg class="rose-svg" viewBox="0 0 100 200"
-                     xmlns="http://www.w3.org/2000/svg" aria-label="Rosa blanca">
-                    <path class="stem" d="M50 84 Q54 132 50 189"/>
-                    <path class="leaf" d="M50 131 Q18 99 17 124 Q29 146 50 131Z"/>
-                    <path class="leaf" d="M51 157 Q81 120 85 145 Q72 166 51 157Z"/>
-                    <ellipse class="white-rose" cx="50" cy="45" rx="20" ry="30"/>
-                    <ellipse class="white-rose" cx="33" cy="53" rx="19" ry="25" transform="rotate(-40 33 53)"/>
-                    <ellipse class="white-rose" cx="67" cy="53" rx="19" ry="25" transform="rotate(40 67 53)"/>
-                    <ellipse class="white-rose" cx="36" cy="69" rx="18" ry="20" transform="rotate(-20 36 69)"/>
-                    <ellipse class="white-rose" cx="64" cy="69" rx="18" ry="20" transform="rotate(20 64 69)"/>
-                    <ellipse class="white-rose" cx="50" cy="62" rx="16" ry="19"/>
-                    <path class="rose-center" d="M44 56 Q61 44 57 60 Q54 71 43 64 Q37 57 48 52"/>
-                </svg>
+    <div class="garden">
+      <div class="garden-roses" aria-hidden="true">
+        <svg class="rose"><use href="#white-rose"/></svg>
+        <svg class="rose"><use href="#white-rose"/></svg>
+        <svg class="rose"><use href="#white-rose"/></svg>
+      </div>
+      <p class="small-note">Hecho pensando en ti</p>
 
-                <!-- ROSA BLANCA 3 -->
-                <svg class="rose-svg" viewBox="0 0 100 180"
-                     xmlns="http://www.w3.org/2000/svg" aria-label="Rosa blanca">
-                    <path class="stem" d="M50 77 Q45 120 50 169"/>
-                    <path class="leaf" d="M49 125 Q21 96 17 117 Q28 140 49 125Z"/>
-                    <path class="leaf" d="M51 145 Q78 113 83 136 Q70 158 51 145Z"/>
-                    <ellipse class="white-rose" cx="50" cy="46" rx="19" ry="30"/>
-                    <ellipse class="white-rose" cx="34" cy="53" rx="18" ry="24" transform="rotate(-40 34 53)"/>
-                    <ellipse class="white-rose" cx="66" cy="53" rx="18" ry="24" transform="rotate(40 66 53)"/>
-                    <ellipse class="white-rose" cx="39" cy="68" rx="17" ry="19" transform="rotate(-25 39 68)"/>
-                    <ellipse class="white-rose" cx="61" cy="68" rx="17" ry="19" transform="rotate(25 61 68)"/>
-                    <ellipse class="white-rose" cx="50" cy="62" rx="15" ry="18"/>
-                    <path class="rose-center" d="M45 55 Q60 43 57 59 Q54 69 44 64 Q38 57 48 52"/>
-                </svg>
-            </div>
+      <div id="secretEnvelope" class="secret-envelope" role="button" tabindex="0"
+           aria-label="Abrir la última carta" onclick="openSecretEnvelope()"
+           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSecretEnvelope()}">
+        <div class="seal">🩵</div>
+      </div>
+      <p id="secretHint" class="small-note">Toca el sobre para descubrir tu última sorpresa</p>
 
-            <p>
-                Unas rosas blancas para ti, aunque por ahora
-                solo pueda regalártelas por aquí 🤍
-            </p>
-        </div>
-
-        <p>
-            Y todavía queda una última cartita por descubrir...
-        </p>
-
-        <button class="btn" onclick="openSecret()">
-            Descubre tu última cartita 💌
-        </button>
-
-        <div class="secret-letter" id="secretLetter">
+      <div id="secretLetter" class="secret-letter">
+        <article class="card">
+          <div class="center">
+            <svg class="rose rose-small"><use href="#white-rose"/></svg>
             <h2>Para mi preciosa 🩵</h2>
+          </div>
 
-            <p>
-                Gaby, quería que tu cumpleaños tuviera un detallito
-                diferente, algo que pudieras guardar y volver a visitar
-                cuando te provoque
-            </p>
+          <div class="letter-text">Y bueno, llegaste hasta el final de este pequeño regalo JAJAJAJA, espero que te haya gustado tanto como a mí me gustó prepararlo para ti
 
-            <p>
-                Me gusta poder compartir momentos contigo, incluso
-                cuando la distancia hace que algunas cosas sean
-                más complicadas de lo que quisiéramos
-            </p>
+Quería hacerte algo que no fuera solamente un mensaje o un regalo cualquiera, quería crear un pequeño lugar al que pudieras volver cuando quisieras, algo que te recordara lo especial que eres para mí y todo lo bonito que significas en mi vida
 
-            <p>
-                Espero que este nuevo año de tu vida venga lleno de
-                cosas bonitas, oportunidades, tranquilidad, risas y
-                momentos que te hagan feliz de verdad
-            </p>
+Tdv recuerdo que al inicio, cuando hablábamos, eras re lanzada y me dejabas sin palabras JAJAJAJA, muchas veces me hacía la tarada, pero después te las seguía, preciosa
 
-            <p>
-                Deseo que nunca te falten motivos para sonreír,
-                personas que te quieran bonito y sueños por cumplir
-            </p>
+Eres muy importante para mí, espero realmente que en algún momento pueda verte en persona, hacer un montón de cosas contigo y tener un montón de experiencias juntas, igual recuerda que me tienes que dar a mis 2 nenes con rulitos, ya sabes JAJAJAJA
 
-            <p>
-                Gracias por formar parte de mi vida y por todos esos
-                pequeños momentos que, de una manera u otra,
-                terminan significando mucho para mí
-            </p>
+Gracias por aparecer en mi vida de una manera tan inesperada, preciosa, y por convertir algo tan simple como un grupo de WhatsApp en el comienzo de algo tan especial para mí
 
-            <p>
-                Ojalá pudiera darte este abrazo en persona,
-                pero por ahora te mando todo mi cariño desde aquí 🩵
-            </p>
+Te amo muchísimo, Gabriela, feliz cumpleaños otra vez 🩵</div>
 
-            <p>
-                Feliz cumpleaños, preciosa
-                Espero que hoy y siempre tengas muchas razones
-                para ser feliz
-            </p>
+          <p class="letter-text signoff">Con mucho amor, para ti 🩵</p>
+        </article>
 
-            <p class="signature">Con cariño, para ti 🩵</p>
+        <div class="center">
+          <h2>Feliz cumpleaños, mi preciosa 🩵</h2>
+          <p>Espero que esta pequeña sorpresa te saque una sonrisa cada vez que vuelvas a ella</p>
+          <button class="btn secondary" onclick="showScreen('welcome')">Volver al inicio</button>
         </div>
-
-        <div class="footer">Un pequeño rincón hecho para ti 🤍</div>
+      </div>
     </div>
+    <p class="footer-note">Un pequeño regalo para guardar y volver a visitar</p>
+  </main>
 </section>
-
-</main>
 
 <script>
-/* NAVEGACIÓN ENTRE PANTALLAS */
-
-function showScreen(id) {
-    document.querySelectorAll('.screen').forEach(function(screen) {
-        screen.classList.remove('active');
-    });
-
-    document.getElementById(id).classList.add('active');
-
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-/* SOBRE: SOLO MUESTRA LA CARTA DESPUÉS DE TOCARLO */
-
-let envelopeOpened = false;
-
-function openEnvelope() {
-    if (envelopeOpened) return;
-
-    envelopeOpened = true;
-
-    document.getElementById('envelope').classList.add('open');
-
-    document.getElementById('envelopeHint').textContent =
-        'Tu cartita se está abriendo... 💌';
-
-    setTimeout(function() {
-        document.getElementById('firstLetter').classList.remove('hidden');
-
-        document.getElementById('envelopeHint').textContent =
-            'Una cartita hecha especialmente para ti 🤍';
-
-        document.getElementById('firstLetter').scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }, 850);
-}
-
-/* REGALO: PRIMERO SE ABRE LA CAJA */
-
-let giftOpened = false;
-
-function openGift() {
-    if (giftOpened) return;
-
-    giftOpened = true;
-
-    document.getElementById('gift').classList.add('open');
-
-    document.getElementById('giftHint').textContent =
-        '¡Mira lo que había dentro!';
-
-    document.getElementById('giftNote').classList.add('show');
-
-    setTimeout(function() {
-        document.getElementById('giftContinue').classList.remove('hidden');
-
-        document.getElementById('giftContinue').scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }, 700);
-}
-
-/* PÉTALOS */
-
-function createPetal() {
-    const petal = document.createElement('span');
-
-    petal.className = 'petal';
-    petal.textContent = Math.random() > .5 ? '❀' : '✿';
-    petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.fontSize = (16 + Math.random() * 15) + 'px';
-    petal.style.animationDuration = (7 + Math.random() * 6) + 's';
-    petal.style.opacity = .7 + Math.random() * .3;
-
-    document.body.appendChild(petal);
-
-    setTimeout(function() {
-        petal.remove();
-    }, 14000);
-}
-
-setInterval(createPetal, 450);
-
-/* QUIZ */
-
-const questions = [
-    {
-        question: "¿En qué país estás viviendo, Gaby?",
-        answers: ["Perú 🇵🇪", "Argentina 🇦🇷", "Brasil 🇧🇷"],
-        correct: 1
-    },
-    {
-        question: "¿Qué color de rosas te gusta?",
-        answers: ["Rojas ❤️", "Amarillas 💛", "Blancas 🤍"],
-        correct: 2
-    },
-    {
-        question: "¿Qué equipo de fútbol te gusta?",
-        answers: ["Boca Juniors 💙💛", "River Plate ❤️🤍", "Alianza Lima 💙"],
-        correct: 0
-    },
-    {
-        question: "¿Qué jugador de fútbol te gusta?",
-        answers: ["Lionel Messi ⚽", "Leandro Paredes ⚽", "Cristiano Ronaldo ⚽"],
-        correct: 1
-    },
-    {
-        question: "¿Qué bebida energética te gusta?",
-        answers: ["Monster 🖤", "Red Bull 💙", "Volt ⚡"],
-        correct: 0
-    },
-    {
-        question: "¿En qué fecha empezamos a hablar?",
-        answers: ["16 de junio 🩵", "16 de julio 🩵", "3 de noviembre 🩵"],
-        correct: 0
-    },
-    {
-        question: "¿Qué tipo de comida comes?",
-        answers: ["Pizza y pastas 🍕", "Solo ensaladas 🥗", "Solo sopas 🍲"],
-        correct: 0
-    },
-    {
-        question: "¿Qué quería hacer con esta página?",
-        answers: [
-            "Una tarea de la universidad 📚",
-            "Un regalo especial para ti 💌",
-            "Una página de fútbol ⚽"
-        ],
-        correct: 1
-    }
+const screenIds = [
+  'welcome', 'firstLetter', 'gift', 'quiz',
+  'quizResult', 'song', 'garden'
 ];
 
-let currentQuestion = 0;
+function showScreen(id) {
+  screenIds.forEach(screenId => {
+    document.getElementById(screenId).classList.toggle('active', screenId === id);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function makePetals() {
+  const holder = document.getElementById('petals');
+  for (let i = 0; i < 16; i++) {
+    const petal = document.createElement('span');
+    petal.className = 'falling-petal';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.animationDuration = (9 + Math.random() * 13) + 's';
+    petal.style.animationDelay = (-Math.random() * 18) + 's';
+    petal.style.opacity = (0.35 + Math.random() * 0.5).toString();
+    petal.style.transform = 'scale(' + (0.55 + Math.random() * 0.7) + ')';
+    holder.appendChild(petal);
+  }
+}
+makePetals();
+
+function openFirstEnvelope() {
+  const envelope = document.getElementById('firstEnvelope');
+  if (envelope.classList.contains('open')) return;
+  envelope.classList.add('open');
+  document.getElementById('firstHint').textContent = 'Tu carta está aquí, preciosa 🩵';
+  setTimeout(() => {
+    document.getElementById('firstLetterReveal').classList.add('visible');
+  }, 850);
+}
+
+function openGift() {
+  document.getElementById('giftScene').classList.add('open');
+  document.getElementById('giftHint').textContent = 'Una historia que empezó por un grupo de WhatsApp 🩵';
+  document.getElementById('giftMessage').hidden = false;
+}
+
+const questions = [
+  {
+    text: '¿Cuál es la bebida favorita de Gabriela?',
+    options: ['Coca-Cola', 'Monster', 'Fanta', 'Sprite'],
+    correct: 1
+  },
+  {
+    text: '¿Cuáles son las flores favoritas de Gabriela?',
+    options: ['Tulipanes', 'Girasoles', 'Rosas blancas', 'Lirios'],
+    correct: 2
+  },
+  {
+    text: '¿De qué equipo es Gabriela?',
+    options: ['River Plate', 'Racing Club', 'Independiente', 'Boca Juniors'],
+    correct: 3
+  },
+  {
+    text: '¿Quién es el jugador favorito de Gabriela?',
+    options: ['Julián Álvarez', 'Leandro Paredes', 'Enzo Fernández', 'Lautaro Martínez'],
+    correct: 1
+  },
+  {
+    text: '¿Qué día empezamos a hablar?',
+    options: ['3 de junio', '16 de junio', '20 de junio', '1 de julio'],
+    correct: 1
+  },
+  {
+    text: '¿Dónde comenzó nuestra historia?',
+    options: ['En un grupo de WhatsApp', 'En Instagram', 'En TikTok', 'En Facebook'],
+    correct: 0
+  },
+  {
+    text: '¿Qué canción me dices que te representa?',
+    options: ['Una canción de Bad Bunny', 'Una canción de Feid', '111, de Yan Block', 'Una canción de Mora'],
+    correct: 2
+  },
+  {
+    text: '¿Cuál de estas opciones reúne varias comidas que me contaste que sueles comer?',
+    options: [
+      'Pizza, ravioles y fideos con salsa',
+      'Asado, choripán y provoleta',
+      'Milanesa napolitana, locro y humita',
+      'Empanadas, pastelitos y tortilla santiagueña'
+    ],
+    correct: 0
+  }
+];
+
+let questionIndex = 0;
 let score = 0;
 let answered = false;
 
 function startQuiz() {
-    currentQuestion = 0;
-    score = 0;
-
-    document.getElementById('questionText').classList.remove('hidden');
-    document.getElementById('answers').classList.remove('hidden');
-    document.getElementById('feedback').classList.remove('hidden');
-    document.getElementById('questionNumber').classList.remove('hidden');
-    document.getElementById('quizResult').classList.add('hidden');
-
-    showScreen('quiz');
-    renderQuestion();
+  questionIndex = 0;
+  score = 0;
+  answered = false;
+  showScreen('quiz');
+  renderQuestion();
 }
 
 function renderQuestion() {
-    answered = false;
+  answered = false;
+  const q = questions[questionIndex];
 
-    const q = questions[currentQuestion];
+  document.getElementById('questionNumber').textContent =
+    'Pregunta ' + (questionIndex + 1) + ' de ' + questions.length;
+  document.getElementById('scoreDisplay').textContent = 'Puntaje: ' + score;
+  document.getElementById('progressFill').style.width =
+    (questionIndex / questions.length * 100) + '%';
+  document.getElementById('questionText').textContent = q.text;
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('nextQuestion').hidden = true;
 
-    document.getElementById('questionNumber').textContent =
-        'Pregunta ' + (currentQuestion + 1) + ' de ' + questions.length;
+  const answers = document.getElementById('answers');
+  answers.innerHTML = '';
 
-    document.getElementById('questionText').textContent = q.question;
-
-    document.getElementById('progress').style.width =
-        (currentQuestion / questions.length * 100) + '%';
-
-    document.getElementById('feedback').textContent = '';
-
-    document.getElementById('nextQuestion').classList.add('hidden');
-
-    const answersDiv = document.getElementById('answers');
-    answersDiv.innerHTML = '';
-
-    q.answers.forEach(function(answer, index) {
-        const button = document.createElement('button');
-
-        button.className = 'answer';
-        button.textContent = answer;
-
-        button.onclick = function() {
-            chooseAnswer(index, button);
-        };
-
-        answersDiv.appendChild(button);
-    });
+  q.options.forEach((option, index) => {
+    const button = document.createElement('button');
+    button.className = 'answer';
+    button.textContent = String.fromCharCode(65 + index) + ') ' + option;
+    button.addEventListener('click', () => selectAnswer(index, button));
+    answers.appendChild(button);
+  });
 }
 
-function chooseAnswer(index, button) {
-    if (answered) return;
+function selectAnswer(selectedIndex, selectedButton) {
+  if (answered) return;
+  answered = true;
 
-    answered = true;
+  const q = questions[questionIndex];
+  const buttons = document.querySelectorAll('.answer');
+  buttons.forEach(button => button.disabled = true);
 
-    const q = questions[currentQuestion];
-    const buttons = document.querySelectorAll('.answer');
+  if (selectedIndex === q.correct) {
+    score++;
+    selectedButton.classList.add('correct');
+    document.getElementById('feedback').textContent = 'SIIII, ESA ERA JAJAJAJA 🩵';
+  } else {
+    selectedButton.classList.add('wrong');
+    buttons[q.correct].classList.add('correct');
+    document.getElementById('feedback').textContent =
+      'NELL JAJAJAJA, la respuesta era ' + q.options[q.correct] + ' 👀';
+  }
 
-    buttons.forEach(function(b) {
-        b.disabled = true;
-    });
+  document.getElementById('scoreDisplay').textContent = 'Puntaje: ' + score;
+  document.getElementById('progressFill').style.width =
+    ((questionIndex + 1) / questions.length * 100) + '%';
 
-    if (index === q.correct) {
-        score++;
-
-        document.getElementById('feedback').textContent =
-            '¡Correctooo! JAJAJA 🩵';
-
-        button.style.background = '#d8f3df';
-        button.style.borderColor = '#3e9660';
-    } else {
-        document.getElementById('feedback').textContent =
-            'Ayyy, esa no era JAJAJA 🩵';
-
-        button.style.background = '#ffe6eb';
-        button.style.borderColor = '#d77a91';
-
-        buttons[q.correct].style.background = '#d8f3df';
-        buttons[q.correct].style.borderColor = '#3e9660';
-    }
-
-    document.getElementById('nextQuestion').classList.remove('hidden');
+  const nextButton = document.getElementById('nextQuestion');
+  nextButton.textContent = questionIndex === questions.length - 1
+    ? 'Ver mi resultado'
+    : 'Siguiente pregunta';
+  nextButton.hidden = false;
 }
 
 function nextQuestion() {
-    currentQuestion++;
+  if (!answered) return;
 
-    if (currentQuestion < questions.length) {
-        renderQuestion();
-    } else {
-        document.getElementById('questionText').classList.add('hidden');
-        document.getElementById('answers').classList.add('hidden');
-        document.getElementById('feedback').classList.add('hidden');
-        document.getElementById('questionNumber').classList.add('hidden');
-        document.getElementById('progress').style.width = '100%';
-
-        document.getElementById('nextQuestion').classList.add('hidden');
-        document.getElementById('quizResult').classList.remove('hidden');
-
-        document.getElementById('scoreText').textContent =
-            'Tu resultado fue ' + score + ' de ' + questions.length + ' 💙';
-    }
+  if (questionIndex < questions.length - 1) {
+    questionIndex++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
 }
 
-/* CARTA FINAL */
+function showResult() {
+  document.getElementById('resultScore').textContent =
+    'Tu puntaje fue ' + score + ' de ' + questions.length;
+  let title, message;
 
-function openSecret() {
-    const letter = document.getElementById('secretLetter');
+  if (score === 8) {
+    title = '¡PERFECTA, PRECIOSA!';
+    message = 'JAJAJAJA, PERFECTA, PRECIOSA, NO FALLASTE NI UNA 👀🩵';
+  } else if (score >= 6) {
+    title = '¡Muy bien, Gabriela!';
+    message = 'MUY BIENNN, GABRIELA, CASI PERFECTA JAJAJA 🩵';
+  } else if (score >= 4) {
+    title = 'Tenemos que repasar';
+    message = 'JAJAJAJA, TENEMOS QUE REPASAR UNAS COSITAS 👀';
+  } else {
+    title = 'NELL JAJAJAJA';
+    message = '¿Y SI VOLVEMOS A INTENTARLO? 👀🩵';
+  }
 
-    letter.classList.toggle('open');
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultMessage').textContent = message;
+  showScreen('quizResult');
+}
 
-    if (letter.classList.contains('open')) {
-        setTimeout(function() {
-            letter.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest'
-            });
-        }, 100);
-    }
+function openSecretEnvelope() {
+  const envelope = document.getElementById('secretEnvelope');
+  if (envelope.classList.contains('open')) return;
+  envelope.classList.add('open');
+  document.getElementById('secretHint').textContent = 'Una última cosita para ti 🩵';
+  setTimeout(() => {
+    document.getElementById('secretLetter').classList.add('visible');
+  }, 850);
 }
 </script>
 
