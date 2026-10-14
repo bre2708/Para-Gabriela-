@@ -3,540 +3,864 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#739bd1">
 <title>Para Gabriela 🩵</title>
 
 <style>
-:root {
-  --blue: #527fbd;
-  --dark-blue: #315b91;
-  --light-blue: #dceaff;
-  --white: #ffffff;
-  --pink: #fff9fc;
-  --text: #294466;
+* {
+    box-sizing: border-box;
 }
 
-* { box-sizing: border-box; }
+:root {
+    --azul: #173e70;
+    --azul-oscuro: #102e55;
+    --azul-claro: #dcecff;
+    --blanco: #ffffff;
+    --rosa: #fff1f6;
+}
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, "Times New Roman", serif;
-  color: var(--text);
-  background: linear-gradient(145deg, #739bd1, #527fbd 55%, #fff9fc);
-  background-attachment: fixed;
-  overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #17365e;
+    text-align: center;
+    background: linear-gradient(
+        145deg,
+        #739bd1,
+        #527fbd 55%,
+        #fff9fc
+    );
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
 
-#petals {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 5;
+button {
+    font-family: inherit;
 }
 
 .petal {
-  position: absolute;
-  top: -35px;
-  width: 17px;
-  height: 24px;
-  border-radius: 80% 15% 75% 20%;
-  background: linear-gradient(135deg, #ffffff, #e5efff);
-  border: 1px solid rgba(49, 91, 145, .35);
-  box-shadow: 0 2px 7px rgba(26, 54, 92, .2);
-  opacity: .96;
-  animation: fall linear infinite;
+    position: fixed;
+    top: -40px;
+    z-index: 0;
+    pointer-events: none;
+    color: white;
+    font-size: 22px;
+    text-shadow: 0 2px 5px #315681;
+    animation: fall linear forwards;
 }
 
 @keyframes fall {
-  0% { transform: translateY(-30px) rotate(0deg) translateX(0); }
-  50% { transform: translateY(55vh) rotate(190deg) translateX(45px); }
-  100% { transform: translateY(110vh) rotate(390deg) translateX(-25px); }
+    to {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0.15;
+    }
 }
 
 main {
-  width: min(92%, 760px);
-  margin: auto;
-  padding: 42px 0 70px;
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px 15px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .screen {
-  display: none;
-  text-align: center;
-  animation: appear .7s ease;
+    display: none;
+    width: 100%;
+    max-width: 650px;
+    animation: appear 0.7s ease;
 }
 
-.screen.active { display: block; }
+.screen.active {
+    display: block;
+}
 
 @keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-h1, h2 { color: #fff; text-shadow: 0 2px 12px rgba(28, 57, 96, .35); }
-h1 { font-size: clamp(2.2rem, 7vw, 3.7rem); margin-bottom: 12px; }
-h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
-p { line-height: 1.8; }
-
-.subtitle {
-  color: white;
-  font-size: 1.1rem;
-  text-shadow: 0 1px 6px rgba(28, 57, 96, .3);
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card {
-  background: rgba(255, 255, 255, .96);
-  border: 1px solid rgba(255, 255, 255, .9);
-  border-radius: 24px;
-  padding: clamp(22px, 5vw, 38px);
-  margin: 25px auto;
-  box-shadow: 0 15px 45px rgba(31, 64, 105, .22);
-  text-align: left;
+    width: 100%;
+    padding: 30px 23px;
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 25px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 12px 35px rgba(20,48,88,0.24);
 }
 
-.card p { white-space: pre-line; }
-
-button {
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 30px;
-  padding: 13px 23px;
-  margin: 7px;
-  color: white;
-  background: #527fbd;
-  box-shadow: 0 5px 14px rgba(49, 91, 145, .22);
-  transition: transform .2s, background .2s;
+h1 {
+    font-size: clamp(32px, 8vw, 48px);
+    margin: 8px 0 15px;
+    color: #234e80;
 }
 
-button:hover {
-  background: #315b91;
-  transform: translateY(-2px);
+h2 {
+    font-size: clamp(25px, 6vw, 34px);
+    color: #234e80;
+    margin-top: 8px;
 }
 
-button:focus-visible {
-  outline: 3px solid #294466;
-  outline-offset: 3px;
+p {
+    font-size: 17px;
+    line-height: 1.8;
 }
 
-.secondary {
-  background: white;
-  color: #315b91;
-  border: 1px solid #b7cde9;
+.subtitle {
+    color: #52749b;
+    font-size: 17px;
 }
 
 .rose {
-  font-size: 5rem;
-  margin: 10px;
-  filter: drop-shadow(0 8px 12px rgba(37, 61, 93, .2));
+    font-size: 55px;
+    margin: 10px 0;
+    filter: drop-shadow(0 4px 4px #b9cde5);
 }
 
-.envelope {
-  position: relative;
-  width: 190px;
-  height: 130px;
-  margin: 35px auto 25px;
-  background: #fff;
-  border: 2px solid #d5e4f8;
-  border-radius: 8px;
-  box-shadow: 0 12px 28px rgba(35, 65, 105, .25);
+.small-roses {
+    font-size: 25px;
+    margin: 12px 0;
 }
 
-.envelope:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #e2edfc;
-  clip-path: polygon(0 0, 50% 57%, 100% 0);
-  border-radius: 6px;
+/* BOTONES: ALTO CONTRASTE */
+
+.btn {
+    position: relative;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    max-width: 100%;
+    min-height: 52px;
+    padding: 14px 23px;
+    margin: 12px 4px 4px;
+    border: 3px solid #ffffff;
+    border-radius: 50px;
+    background: #173e70;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow:
+        0 5px 0 #0e2c50,
+        0 8px 16px rgba(14,44,80,0.28);
+    transition: transform 0.2s, background 0.2s;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.envelope:after {
-  content: "🩵";
-  position: absolute;
-  font-size: 30px;
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%);
+.btn:hover {
+    background: #285b95;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #0e2c50;
+}
+
+.btn-light {
+    background: #ffffff;
+    color: #173e70;
+    border: 3px solid #173e70;
+    box-shadow: 0 5px 0 #b5cbe5;
+}
+
+.btn-light:hover {
+    background: #e7f1ff;
+}
+
+.button-area {
+    position: relative;
+    z-index: 5;
+    margin-top: 24px;
+}
+
+.letter {
+    background: #fffdfd;
+    border: 1px solid #e0eaf7;
+    border-radius: 18px;
+    padding: 23px 20px;
+    margin: 20px 0;
+    box-shadow: inset 0 0 15px rgba(140,170,205,0.10);
+    text-align: left;
+}
+
+.letter p {
+    font-size: 17px;
+}
+
+.signature {
+    text-align: right;
+    color: #315d8e;
+    font-style: italic;
+    margin-top: 22px;
 }
 
 .gift {
-  font-size: 7rem;
-  margin: 15px;
-  animation: bob 2s ease-in-out infinite;
+    width: 150px;
+    height: 125px;
+    margin: 35px auto 25px;
+    position: relative;
+    cursor: pointer;
+    animation: float 2s ease-in-out infinite;
 }
 
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-9px); }
+.gift-box {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 130px;
+    height: 90px;
+    border-radius: 5px 5px 12px 12px;
+    background: #6c9bd4;
+    border: 3px solid #ffffff;
+    box-shadow: 0 7px 14px rgba(30,60,100,0.22);
+}
+
+.gift-box::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 100%;
+    background: #ffffff;
+    left: 51px;
+}
+
+.gift-lid {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 150px;
+    height: 28px;
+    border-radius: 7px;
+    background: #315e98;
+    border: 3px solid #ffffff;
+    z-index: 2;
+}
+
+.gift-bow {
+    position: absolute;
+    top: -1px;
+    left: 52px;
+    font-size: 47px;
+    z-index: 3;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 .question {
-  font-size: 1.15rem;
-  font-weight: bold;
-  margin-bottom: 18px;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin: 20px 0;
 }
 
 .answers {
-  display: grid;
-  gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 20px 0;
 }
 
-.answers button {
-  width: 100%;
-  margin: 0;
-  background: #edf4ff;
-  color: #294466;
-  border: 1px solid #cadcf4;
-  box-shadow: none;
-  border-radius: 15px;
-  text-align: left;
+.answer {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #b8cfea;
+    border-radius: 15px;
+    background: #f3f8ff;
+    color: #214b79;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.answers button:hover {
-  background: #dbe9ff;
+.answer:hover {
+    background: #dcecff;
+    border-color: #315e98;
 }
 
-.answers button:disabled { cursor: default; opacity: .85; }
+.answer:disabled {
+    cursor: default;
+    opacity: 1;
+}
 
 .feedback {
-  min-height: 30px;
-  font-weight: bold;
-  color: #315b91;
+    min-height: 32px;
+    font-weight: bold;
+    color: #315e98;
+    line-height: 1.6;
 }
 
 .progress {
-  height: 8px;
-  border-radius: 20px;
-  background: #e5edf8;
-  overflow: hidden;
-  margin: 15px 0 25px;
+    height: 8px;
+    width: 100%;
+    background: #e1eaf6;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.progress div {
-  height: 100%;
-  width: 0;
-  background: #739bd1;
-  transition: width .3s;
+.progress-inner {
+    height: 100%;
+    width: 0;
+    background: #315e98;
+    transition: width 0.3s;
 }
 
-.spotify {
-  width: 100%;
-  height: 152px;
-  border: 0;
-  border-radius: 14px;
-  margin: 12px 0;
+.spotify-box {
+    margin: 24px 0;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid #d5e4f7;
+    background: white;
 }
 
-.small {
-  font-size: .9rem;
-  color: #5d7190;
+.spotify-box iframe {
+    display: block;
+    width: 100%;
+    border: 0;
 }
 
 .garden {
-  font-size: clamp(2rem, 8vw, 4rem);
-  margin: 20px 0;
-  letter-spacing: 4px;
+    padding: 25px 10px;
+    background: linear-gradient(#f1f7ff, #fff6fa);
+    border-radius: 20px;
+    margin: 20px 0;
 }
 
-[hidden] { display: none !important; }
-
-footer {
-  margin-top: 35px;
-  color: white;
-  text-shadow: 0 1px 6px rgba(28, 57, 96, .3);
-  font-size: .9rem;
+.flower {
+    display: inline-block;
+    font-size: 40px;
+    margin: 5px;
+    animation: float 3s ease-in-out infinite;
 }
 
-@media (max-width: 480px) {
-  main { padding-top: 28px; }
-  .card { border-radius: 19px; }
-  .envelope { transform: scale(.9); margin: 20px auto; }
+.hidden-letter {
+    display: none;
+    text-align: left;
+    padding: 22px;
+    margin-top: 20px;
+    border-radius: 18px;
+    border: 1px solid #d4e4f7;
+    background: #fffdfd;
+    animation: appear 0.7s ease;
+}
+
+.hidden-letter.open {
+    display: block;
+}
+
+.footer {
+    font-size: 13px;
+    color: #6884a6;
+    margin-top: 25px;
+}
+
+@media (max-width: 400px) {
+    main {
+        padding: 15px 10px 30px;
+    }
+
+    .card {
+        padding: 25px 16px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 13px 17px;
+        font-size: 15px;
+    }
 }
 </style>
 </head>
 
 <body>
-<div id="petals" aria-hidden="true"></div>
 
 <main>
 
-<section id="welcome" class="screen active">
-  <div class="rose">🌹</div>
-  <h1>Para Gabriela</h1>
-  <p class="subtitle">Hay regalos que se pueden envolver, y hay otros que se preparan con el corazón 🩵</p>
-  <div style="margin-top:35px">
-    <button onclick="showScreen('firstEnvelope')">Tengo algo para ti</button>
-  </div>
-  <footer>Un pequeño detalle hecho especialmente para ti</footer>
+<!-- PANTALLA 1: BIENVENIDA -->
+<section class="screen active" id="inicio">
+    <div class="card">
+        <div class="small-roses">🤍 🌹 🤍</div>
+        <div class="rose">💐</div>
+
+        <p class="subtitle">Un pequeño detalle hecho con mucho cariño</p>
+
+        <h1>Para Gabriela</h1>
+
+        <p>
+            Hay regalos que se pueden envolver,
+            y hay otros que se preparan con el corazón 🩵
+        </p>
+
+        <p>
+            Este es uno de esos regalitos que hice especialmente para ti
+        </p>
+
+        <div class="button-area">
+            <button class="btn" onclick="showScreen('carta1')">
+                Tengo una sorpresa para ti 💌
+            </button>
+        </div>
+
+        <div class="footer">Hecho especialmente para ti 🩵</div>
+    </div>
 </section>
 
-<section id="firstEnvelope" class="screen">
-  <h2>Un sobre para ti</h2>
-  <p class="subtitle">Preciosa, abre tu primer regalito 🩵</p>
-  <div class="envelope"></div>
-  <button onclick="showScreen('firstLetter')">Abrir mi carta</button>
+
+<!-- PANTALLA 2: PRIMERA CARTA -->
+<section class="screen" id="carta1">
+    <div class="card">
+        <div class="rose">💌</div>
+        <h2>Antes de continuar...</h2>
+
+        <div class="letter">
+            <p>Preciosa,</p>
+
+            <p>
+                Quería hacer algo diferente para ti, algo que no fuera
+                solamente un mensaje más en el celular
+            </p>
+
+            <p>
+                Por eso preparé esta pequeña sorpresa, para que puedas
+                abrirla cuando quieras y tengas un rinconcito hecho
+                especialmente para ti
+            </p>
+
+            <p>
+                Quizá no pueda estar a tu lado físicamente en este momento,
+                pero eso no significa que no pueda buscar maneras de
+                hacerte sentir especial
+            </p>
+
+            <p>
+                Así que espero que disfrutes cada parte de esto,
+                porque lo hice pensando en ti 🩵
+            </p>
+
+            <p class="signature">Con mucho cariño 🩵</p>
+        </div>
+
+        <button class="btn" onclick="showScreen('regalo')">
+            Abre tu regalo 🎁
+        </button>
+    </div>
 </section>
 
-<section id="firstLetter" class="screen">
-  <h2>Feliz cumpleaños, preciosa</h2>
-  <div class="card">
-    <p>Feliz cumpleaños preciosaa 🩵
 
-Hoy quiero recordarte lo especial que eres para mí y desearte un nuevo año lleno de momentos bonitos, tranquilidad, amor y muchas razones para que saques esa sonrisa bella que tienes reina
+<!-- PANTALLA 3: REGALO -->
+<section class="screen" id="regalo">
+    <div class="card">
+        <h2>Un regalito para ti</h2>
 
-Espero que la vida te sorprenda de muchas maneras, que puedas cumplir todos tus sueños y que nunca te falten personas que te quieran de vdd
+        <p>
+            No puedes abrirlo con las manos,
+            pero sí con un poquito de curiosidad JAJAJA
+        </p>
 
-Preparé este pequeño detalle con mucho amor, porque quería regalarte algo diferente y que pudieras guardar y llevarlo para todos lados y tenerlo como un recuerdo bonito
+        <div class="gift" onclick="showScreen('quiz')">
+            <div class="gift-bow">🎀</div>
+            <div class="gift-lid"></div>
+            <div class="gift-box"></div>
+        </div>
 
-Superaremos todos los obstáculos que la vida nos ponga si es que tú me lo permites, eres mi persona, espero yo tmb ser la tuya, quiero todo contigo, preciosa eres una persona muy especial y única, haces cambiar a las personas, y sino mira lo que te estoy haciendo reina, nadie lo creería lit, te amoooo preciosa muchísimo 🩵
+        <p>Presiona el botón para descubrir qué sigue 👀</p>
 
-Ojalá, cuando vuelvas a ver esta página te saque aunque sea una pequeña sonrisa 🩵
-
-                 Con mucho amor, para ti 🩵</p>
-  </div>
-  <button onclick="showScreen('gift')">Hay algo más para ti 👀</button>
+        <button class="btn" onclick="showScreen('quiz')">
+            Abrir regalo 🎁
+        </button>
+    </div>
 </section>
 
-<section id="gift" class="screen">
-  <h2>Tu regalito, preciosa</h2>
-  <div class="gift">🎁</div>
-  <div class="card">
-    <p>Y pensar que todo esto empezó por un grupo de wsp JAJAJAJA, quién diría que de algo tan simple terminarías convirtiéndote en una persona tan especial para mí, preciosa 🩵
 
-Eres re especial para mí, reina, y quería hacerte algo diferente para que tengas un recuerdito bonito de mí
+<!-- PANTALLA 4: QUIZ -->
+<section class="screen" id="quiz">
+    <div class="card">
+        <div class="rose">🩵</div>
+        <h2>¿Cuánto recuerdas?</h2>
 
-Y sí, también tenía que poner esa canción que siempre me dices que eres JAJAJAJA, porque obvio no podía faltar en tu regalo 🩵
+        <p>
+            Un mini quiz para poner a prueba tu memoria,
+            a ver qué tanto te acuerdas de algunas cositas JAJAJA
+        </p>
 
-Te amoooo, preciosa</p>
-  </div>
-  <button onclick="showScreen('quiz')">A ver cuánto te acuerdas 👀</button>
+        <div class="progress">
+            <div class="progress-inner" id="progress"></div>
+        </div>
+
+        <p id="questionNumber" class="subtitle">Pregunta 1 de 8</p>
+
+        <div class="question" id="questionText"></div>
+
+        <div class="answers" id="answers"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <button
+            class="btn"
+            id="nextQuestion"
+            onclick="nextQuestion()"
+            style="display:none"
+        >
+            Siguiente pregunta 🩵
+        </button>
+
+        <div id="quizResult" style="display:none">
+            <h2>¡Terminaste! 🩵</h2>
+            <p id="scoreText"></p>
+            <p>
+                No importa cuántas hayas acertado,
+                lo importante es que llegaste hasta aquí JAJAJA
+            </p>
+
+            <button class="btn" onclick="showScreen('cancion')">
+                Hay algo más para ti 🎶
+            </button>
+        </div>
+    </div>
 </section>
 
-<section id="quiz" class="screen">
-  <h2>¿Cuánto recuerdas?</h2>
-  <p class="subtitle">Ocho preguntitas sobre ti, preciosa 🩵</p>
-  <div class="card">
-    <div id="quizCounter" class="small"></div>
-    <div class="progress"><div id="progressFill"></div></div>
-    <div id="question" class="question"></div>
-    <div id="answers" class="answers"></div>
-    <p id="feedback" class="feedback" aria-live="polite"></p>
-    <button id="nextQuestion" onclick="nextQuestion()" hidden>Siguiente pregunta</button>
-  </div>
+
+<!-- PANTALLA 5: CANCIÓN -->
+<section class="screen" id="cancion">
+    <div class="card">
+        <div class="rose">🎶</div>
+
+        <h2>Una canción para ti</h2>
+
+        <p>
+            Quería dejarte también una canción para que puedas escucharla
+            mientras ves esta parte de tu regalito
+        </p>
+
+        <div class="spotify-box">
+            <iframe
+                src="https://open.spotify.com/embed/track/2SPBFiD8iITb8CKJGz1TEQ?utm_source=generator&theme=0"
+                height="152"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <p class="subtitle">
+            Espero que la disfrutes, preciosa 🩵
+        </p>
+
+        <button class="btn" onclick="showScreen('jardin')">
+            Continuar 🌹
+        </button>
+    </div>
 </section>
 
-<section id="song" class="screen">
-  <h2>Tu canción, preciosa 🩵</h2>
-  <div class="card">
-    <p>Y cómo no iba a estar tu canción aquí, preciosa JAJAJAJA, si siempre me dices que eres esta canción 🩵
 
-Así que ahora también tendrá su pequeño lugar en este regalo, para que puedas escucharla cada vez que quieras</p>
-    <iframe class="spotify"
-      src="https://open.spotify.com/embed/track/2SPBFiD8iITb8CKJGz1TEQ?utm_source=generator&theme=0"
-      title="111 de Yan Block en Spotify"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
-    <p class="small">Si no se reproduce, prueba pulsando el botón de reproducción o iniciando sesión en Spotify</p>
-  </div>
-  <button onclick="showScreen('garden')">Continuar con tu regalito 🩵</button>
-</section>
+<!-- PANTALLA 6: JARDÍN Y CARTA SECRETA -->
+<section class="screen" id="jardin">
+    <div class="card">
+        <div class="rose">🤍</div>
 
-<section id="garden" class="screen">
-  <h2>Un pequeño jardín para ti</h2>
-  <p class="subtitle">Porque las cosas bonitas también florecen a la distancia</p>
-  <div class="garden">🤍 🌷 🩵 🌹 🤍</div>
-  <div class="card">
-    <p>Preciosa, ojalá la vida nos regale la oportunidad de compartir muchos momentos bonitos juntas, de reírnos por tonterías, conocer lugares y crear recuerdos que algún día podamos mirar con una sonrisa 🩵</p>
-  </div>
-  <div class="envelope"></div>
-  <button onclick="showScreen('secret')">Hay un último sobre para ti</button>
-</section>
+        <h2>Un pequeño jardín para ti</h2>
 
-<section id="secret" class="screen">
-  <h2>Una última cartita</h2>
-  <p class="subtitle">Esta sí es la última, lo prometo JAJAJA 🩵</p>
-  <div class="envelope"></div>
-  <button onclick="document.getElementById('secretLetter').hidden = false; this.hidden = true">
-    Abrir sobre secreto
-  </button>
-  <div id="secretLetter" class="card" hidden>
-    <p>Para mi preciosa 🩵
+        <p>
+            Sé que te gustan las rosas blancas,
+            así que quería dejarte algunas por aquí 🌹
+        </p>
 
-Y bueno, llegaste hasta el final de este pequeño regalo JAJAJAJA, espero que te haya gustado tanto como a mí me gustó prepararlo para ti
+        <div class="garden">
+            <div class="flower">🤍</div>
+            <div class="flower">🌹</div>
+            <div class="flower">🤍</div>
+            <div class="flower">🌷</div>
+            <div class="flower">🤍</div>
 
-Quería hacerte algo que no fuera solamente un mensaje o un regalo cualquiera, quería crear un pequeño lugar al que pudieras volver cuando quisieras, algo que te recordara lo especial que eres para mí y todo lo bonito que significas en mi vida
+            <p>
+                Si pudiera, te regalaría rosas blancas de verdad
+            </p>
+        </div>
 
-Tdv recuerdo que al inicio, cuando hablábamos, eras re lanzada y me dejabas sin palabras JAJAJAJA, muchas veces me hacía la tarada, pero después te las seguía, preciosa
+        <p>
+            Y todavía queda una última cosita por descubrir...
+        </p>
 
-Eres muy importante para mí, espero realmente que en algún momento pueda verte en persona, hacer un montón de cosas contigo y tener un montón de experiencias juntas, igual recuerda que me tienes que dar a mis 2 nenes con rulitos, ya sabes JAJAJAJA
+        <button class="btn" onclick="openSecret()">
+            Abre tu última cartita 💌
+        </button>
 
-Gracias por aparecer en mi vida de una manera tan inesperada, preciosa, y por convertir algo tan simple como un grupo de WhatsApp en el comienzo de algo tan especial para mí
+        <div class="hidden-letter" id="secretLetter">
+            <h2>Para mi preciosa 🩵</h2>
 
-Te amo muchísimo, Gabriela, feliz cumpleaños otra vez 🩵</p>
-  </div>
-  <p class="subtitle">Hecho con mucho amor para ti 🩵</p>
-  <button class="secondary" onclick="showScreen('welcome')">Volver al inicio</button>
+            <p>
+                Gaby, quería que tu cumpleaños tuviera un detallito
+                diferente, algo que pudieras guardar y volver a visitar
+                cuando te provoque
+            </p>
+
+            <p>
+                Me gusta poder compartir momentos contigo, incluso
+                cuando la distancia hace que algunas cosas sean
+                más complicadas de lo que quisiéramos
+            </p>
+
+            <p>
+                Espero que este nuevo año de tu vida venga lleno de
+                cosas bonitas, oportunidades, tranquilidad, risas y
+                momentos que te hagan feliz de verdad
+            </p>
+
+            <p>
+                Deseo que nunca te falten motivos para sonreír,
+                personas que te quieran bonito y sueños por cumplir
+            </p>
+
+            <p>
+                Gracias por formar parte de mi vida y por todos esos
+                pequeños momentos que, de una manera u otra,
+                terminan significando mucho para mí
+            </p>
+
+            <p>
+                Ojalá pudiera darte este abrazo en persona,
+                pero por ahora te mando todo mi cariño desde aquí 🩵
+            </p>
+
+            <p>
+                Feliz cumpleaños, preciosa
+                Espero que hoy y siempre tengas muchas razones
+                para ser feliz
+            </p>
+
+            <p class="signature">
+                Con cariño, para ti 🩵
+            </p>
+        </div>
+
+        <div class="footer">
+            Un pequeño rincón hecho para ti 🤍
+        </div>
+    </div>
 </section>
 
 </main>
 
 <script>
-const petalLayer = document.getElementById("petals");
-
-for (let i = 0; i < 28; i++) {
-  const petal = document.createElement("span");
-  petal.className = "petal";
-  petal.style.left = Math.random() * 100 + "%";
-  petal.style.animationDuration = (7 + Math.random() * 9) + "s";
-  petal.style.animationDelay = (-Math.random() * 15) + "s";
-  petal.style.opacity = (0.65 + Math.random() * 0.35).toFixed(2);
-  petal.style.transform = "scale(" + (0.65 + Math.random() * 0.65) + ")";
-  petalLayer.appendChild(petal);
-}
+/* CAMBIO DE PANTALLAS */
 
 function showScreen(id) {
-  document.querySelectorAll(".screen").forEach(screen => {
-    screen.classList.remove("active");
-  });
-  document.getElementById(id).classList.add("active");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+    document.querySelectorAll('.screen').forEach(function(screen) {
+        screen.classList.remove('active');
+    });
+
+    const target = document.getElementById(id);
+
+    if (target) {
+        target.classList.add('active');
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
 }
 
-const quiz = [
-  {
-    q: "¿Cuál es tu bebida favorita?",
-    a: ["Monster", "Coca-Cola", "Café", "Fanta"],
-    correct: 0
-  },
-  {
-    q: "¿Cuáles son tus flores favoritas?",
-    a: ["Girasoles", "Rosas blancas", "Tulipanes", "Margaritas"],
-    correct: 1
-  },
-  {
-    q: "¿De qué equipo eres?",
-    a: ["River Plate", "Racing", "Boca Juniors", "Independiente"],
-    correct: 2
-  },
-  {
-    q: "¿Cuál es tu jugador favorito?",
-    a: ["Julián Álvarez", "Enzo Fernández", "Leandro Paredes", "Lautaro Martínez"],
-    correct: 2
-  },
-  {
-    q: "¿Qué día empezamos a hablar?",
-    a: ["16 de junio", "3 de noviembre", "16 de julio", "25 de agosto"],
-    correct: 0
-  },
-  {
-    q: "¿Dónde empezó todo?",
-    a: ["Instagram", "TikTok", "Un grupo de WhatsApp", "Facebook"],
-    correct: 2
-  },
-  {
-    q: "¿Qué canción dices que te representa?",
-    a: ["111 — Yan Block", "Otra canción", "Una de Boca", "Una de amor"],
-    correct: 0
-  },
-  {
-    q: "¿Qué grupo tiene comidas que me has contado que comes?",
-    a: [
-      "Pizza, ravioles y pasta con salsa",
-      "Solo ensaladas y sopas",
-      "Solo pescado y arroz",
-      "Solo dulces y postres"
-    ],
-    correct: 0
-  }
+
+/* PÉTALOS CAYENDO */
+
+function createPetal() {
+    const petal = document.createElement('div');
+
+    petal.className = 'petal';
+    petal.textContent = Math.random() > 0.5 ? '❀' : '✿';
+
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.fontSize = (15 + Math.random() * 15) + 'px';
+    petal.style.opacity = 0.6 + Math.random() * 0.4;
+    petal.style.animationDuration = (6 + Math.random() * 6) + 's';
+
+    document.body.appendChild(petal);
+
+    setTimeout(function() {
+        petal.remove();
+    }, 12500);
+}
+
+setInterval(createPetal, 450);
+
+
+/* QUIZ */
+
+const questions = [
+    {
+        question: "¿En qué país estás viviendo, Gaby?",
+        answers: ["Perú 🇵🇪", "Argentina 🇦🇷", "Brasil 🇧🇷"],
+        correct: 1
+    },
+    {
+        question: "¿Qué color de rosas te gusta?",
+        answers: ["Rojas ❤️", "Amarillas 💛", "Blancas 🤍"],
+        correct: 2
+    },
+    {
+        question: "¿Qué equipo de fútbol te gusta?",
+        answers: ["Boca Juniors 💙💛", "River Plate ❤️🤍", "Alianza Lima 💙"],
+        correct: 0
+    },
+    {
+        question: "¿Qué jugador de fútbol te gusta?",
+        answers: ["Lionel Messi ⚽", "Leandro Paredes ⚽", "Cristiano Ronaldo ⚽"],
+        correct: 1
+    },
+    {
+        question: "¿Qué bebida energética te gusta?",
+        answers: ["Monster 🖤", "Red Bull 💙", "Volt ⚡"],
+        correct: 0
+    },
+    {
+        question: "¿En qué fecha empezamos a hablar?",
+        answers: ["16 de junio 🩵", "16 de julio 🩵", "3 de noviembre 🩵"],
+        correct: 0
+    },
+    {
+        question: "¿Qué tipo de comida comes?",
+        answers: ["Pizza y pastas 🍕", "Solo ensaladas 🥗", "Solo sopas 🍲"],
+        correct: 0
+    },
+    {
+        question: "¿Qué quería hacer con esta página?",
+        answers: [
+            "Una tarea de la universidad 📚",
+            "Un regalo especial para ti 💌",
+            "Una página de fútbol ⚽"
+        ],
+        correct: 1
+    }
 ];
 
-let current = 0;
+let currentQuestion = 0;
 let score = 0;
 let answered = false;
 
 function renderQuestion() {
-  answered = false;
-  const item = quiz[current];
+    answered = false;
 
-  document.getElementById("quizCounter").textContent =
-    "Pregunta " + (current + 1) + " de " + quiz.length;
+    const q = questions[currentQuestion];
 
-  document.getElementById("progressFill").style.width =
-    (current / quiz.length * 100) + "%";
+    document.getElementById('questionNumber').textContent =
+        'Pregunta ' + (currentQuestion + 1) + ' de ' + questions.length;
 
-  document.getElementById("question").textContent = item.q;
-  document.getElementById("feedback").textContent = "";
-  document.getElementById("nextQuestion").hidden = true;
+    document.getElementById('questionText').textContent = q.question;
 
-  const container = document.getElementById("answers");
-  container.innerHTML = "";
+    document.getElementById('progress').style.width =
+        (currentQuestion / questions.length * 100) + '%';
 
-  item.a.forEach((answer, index) => {
-    const button = document.createElement("button");
-    button.textContent = answer;
-    button.onclick = () => chooseAnswer(index, button);
-    container.appendChild(button);
-  });
+    document.getElementById('feedback').textContent = '';
+    document.getElementById('nextQuestion').style.display = 'none';
+
+    const answersDiv = document.getElementById('answers');
+    answersDiv.innerHTML = '';
+
+    q.answers.forEach(function(answer, index) {
+        const button = document.createElement('button');
+
+        button.className = 'answer';
+        button.textContent = answer;
+
+        button.onclick = function() {
+            chooseAnswer(index, button);
+        };
+
+        answersDiv.appendChild(button);
+    });
 }
 
-function chooseAnswer(index, selectedButton) {
-  if (answered) return;
-  answered = true;
+function chooseAnswer(index, button) {
+    if (answered) return;
 
-  const item = quiz[current];
-  const buttons = document.querySelectorAll("#answers button");
-  buttons.forEach(button => button.disabled = true);
+    answered = true;
 
-  if (index === item.correct) {
-    score++;
-    document.getElementById("feedback").textContent =
-      "SÍÍÍ, esa era JAJAJA 🩵";
-  } else {
-    document.getElementById("feedback").textContent =
-      "JAJAJA, casi preciosa, la respuesta era: " + item.a[item.correct];
-  }
+    const q = questions[currentQuestion];
+    const buttons = document.querySelectorAll('.answer');
 
-  selectedButton.style.borderColor =
-    index === item.correct ? "#527fbd" : "#bd8a9a";
+    buttons.forEach(function(b) {
+        b.disabled = true;
+    });
 
-  document.getElementById("nextQuestion").hidden = false;
-  document.getElementById("nextQuestion").textContent =
-    current === quiz.length - 1 ? "Ver resultado" : "Siguiente pregunta";
+    if (index === q.correct) {
+        score++;
+
+        document.getElementById('feedback').textContent =
+            '¡Correctooo! JAJAJA 🩵';
+
+        button.style.background = '#d8f3df';
+        button.style.borderColor = '#3e9660';
+    } else {
+        document.getElementById('feedback').textContent =
+            'Ayyy, esa no era JAJAJA 🩵';
+
+        button.style.background = '#ffe6eb';
+        button.style.borderColor = '#d77a91';
+
+        buttons[q.correct].style.background = '#d8f3df';
+        buttons[q.correct].style.borderColor = '#3e9660';
+    }
+
+    document.getElementById('nextQuestion').style.display = 'inline-flex';
 }
 
 function nextQuestion() {
-  if (!answered) return;
+    currentQuestion++;
 
-  current++;
+    if (currentQuestion < questions.length) {
+        renderQuestion();
+    } else {
+        document.getElementById('questionText').style.display = 'none';
+        document.getElementById('answers').style.display = 'none';
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('questionNumber').style.display = 'none';
+        document.getElementById('progress').style.width = '100%';
+        document.getElementById('nextQuestion').style.display = 'none';
+        document.getElementById('quizResult').style.display = 'block';
 
-  if (current < quiz.length) {
-    renderQuestion();
-  } else {
-    document.getElementById("question").textContent =
-      "¡Terminaste, preciosa! 🩵";
-    document.getElementById("answers").innerHTML = "";
-    document.getElementById("quizCounter").textContent =
-      "Resultado: " + score + " de " + quiz.length;
-    document.getElementById("progressFill").style.width = "100%";
-    document.getElementById("feedback").textContent =
-      score === quiz.length
-        ? "¡Las acertaste todas! JAJAJA, sabes que te conozco 🩵"
-        : "Este regalito es para ti, así que ganaste igual JAJAJA 🩵";
-    document.getElementById("nextQuestion").hidden = false;
-    document.getElementById("nextQuestion").textContent =
-      "Escuchar tu canción";
-    document.getElementById("nextQuestion").onclick = () => {
-      showScreen("song");
-    };
-  }
+        document.getElementById('scoreText').textContent =
+            'Tu resultado fue ' + score + ' de ' + questions.length + ' 🩵';
+    }
+}
+
+function openSecret() {
+    const letter = document.getElementById('secretLetter');
+
+    letter.classList.toggle('open');
+
+    if (letter.classList.contains('open')) {
+        setTimeout(function() {
+            letter.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }, 100);
+    }
 }
 
 renderQuestion();
 </script>
+
 </body>
 </html>
