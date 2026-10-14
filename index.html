@@ -1,834 +1,373 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#eaf5ff">
 <title>Para Gabriela 🩵</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
-
 :root {
-  --blue: #8dbce9;
-  --blue-dark: #426c98;
-  --blue-light: #eaf5ff;
-  --white: #fff;
-  --ink: #42556b;
-  --muted: #74869b;
-  --pink: #f4e8ed;
+  --blue: #527fbd;
+  --dark-blue: #315b91;
+  --light-blue: #dceaff;
+  --white: #ffffff;
+  --pink: #fff9fc;
+  --text: #294466;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   min-height: 100vh;
-  color: var(--ink);
-  background: linear-gradient(145deg, #a9c9ed, #7fa9dc 55%, #fff9fc);
-  font-family: 'Nunito', sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background: linear-gradient(145deg, #739bd1, #527fbd 55%, #fff9fc);
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 
-button { font: inherit; }
-
-button:focus-visible {
-  outline: 3px solid #426c98;
-  outline-offset: 4px;
-}
-
-.screen {
-  display: none;
-  position: relative;
-  min-height: 100vh;
-  padding: 36px 18px;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.screen.active {
-  display: flex;
-  animation: fadeIn .8s ease both;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  width: min(100%, 690px);
-  margin: auto;
-  text-align: center;
-}
-
-.eyebrow {
-  color: var(--blue-dark);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: .73rem;
-  font-weight: 800;
-}
-
-h1, h2, h3, .letter-text {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-h1 {
-  font-size: clamp(3rem, 9vw, 5.4rem);
-  line-height: .98;
-  font-weight: 500;
-  color: #426b98;
-  margin: 20px 0;
-}
-
-h2 {
-  color: #426b98;
-  font-size: clamp(2.1rem, 6vw, 3.3rem);
-  font-weight: 500;
-  line-height: 1.05;
-  margin: 15px 0;
-}
-
-h3 {
-  color: #426b98;
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
-p {
-  line-height: 1.85;
-}
-
-.intro {
-  max-width: 470px;
-  margin: 0 auto 28px;
-  color: #647b95;
-  font-size: 1.02rem;
-}
-
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border: 0;
-  border-radius: 999px;
-  padding: 14px 25px;
-  background: linear-gradient(135deg, #8dbce9, #719fd2);
-  color: white;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 9px 24px #8dbce945;
-  transition: transform .25s, box-shadow .25s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 13px 28px #8dbce960;
-}
-
-.btn.secondary {
-  background: white;
-  color: #527ba7;
-  border: 1px solid #d8e8f8;
-  box-shadow: none;
-}
-
-.btn:disabled {
-  opacity: .45;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.small-note {
-  font-size: .84rem;
-  color: var(--muted);
-}
-
-.card {
-  width: min(100%, 650px);
-  margin: 20px auto;
-  padding: clamp(23px, 5vw, 42px);
-  background: #ffffffdb;
-  border: 1px solid #ffffff;
-  border-radius: 25px;
-  box-shadow: 0 18px 60px #759ac21a;
-  backdrop-filter: blur(10px);
-  text-align: left;
-}
-
-.card .center { text-align: center; }
-
-.rose {
-  width: 105px;
-  height: 105px;
-  color: #fff;
-  filter: drop-shadow(0 8px 12px #7c9fbb30);
-}
-
-.rose-small {
-  width: 54px;
-  height: 54px;
-}
-
-.rose-cluster {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  margin: 0 auto 8px;
-}
-
-.rose-cluster .rose:nth-child(2) {
-  width: 135px;
-  height: 135px;
-  margin: 0 -12px;
-}
-
-.corner-rose {
-  position: absolute;
-  width: 125px;
-  height: 125px;
-  opacity: .82;
-  pointer-events: none;
-}
-
-.corner-rose.left {
-  top: 12px;
-  left: -25px;
-  transform: rotate(-22deg);
-}
-
-.corner-rose.right {
-  right: -25px;
-  bottom: 12px;
-  transform: rotate(28deg);
-}
-
-.falling-petal {
+#petals {
   position: fixed;
-  z-index: 5;
-  top: -35px;
-  width: 13px;
-  height: 19px;
-  border-radius: 90% 10% 90% 10%;
-  background: linear-gradient(140deg, #fff, #e7edf8);
-  box-shadow: 0 2px 5px #9ab3d022;
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.petal {
+  position: absolute;
+  top: -35px;
+  width: 17px;
+  height: 24px;
+  border-radius: 80% 15% 75% 20%;
+  background: linear-gradient(135deg, #ffffff, #e5efff);
+  border: 1px solid rgba(49, 91, 145, .35);
+  box-shadow: 0 2px 7px rgba(26, 54, 92, .2);
+  opacity: .96;
   animation: fall linear infinite;
 }
 
 @keyframes fall {
-  0% { transform: translateY(-5vh) rotate(0deg); opacity: 0; }
-  10% { opacity: .9; }
-  90% { opacity: .8; }
-  100% { transform: translate(60px, 110vh) rotate(650deg); opacity: 0; }
+  0% { transform: translateY(-30px) rotate(0deg) translateX(0); }
+  50% { transform: translateY(55vh) rotate(190deg) translateX(45px); }
+  100% { transform: translateY(110vh) rotate(390deg) translateX(-25px); }
 }
 
-/* Primer sobre */
-.envelope-area {
-  perspective: 1000px;
-  margin: 32px auto 18px;
-  width: min(310px, 85vw);
-  height: 205px;
+main {
+  width: min(92%, 760px);
+  margin: auto;
+  padding: 42px 0 70px;
   position: relative;
+  z-index: 2;
+}
+
+.screen {
+  display: none;
+  text-align: center;
+  animation: appear .7s ease;
+}
+
+.screen.active { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2 { color: #fff; text-shadow: 0 2px 12px rgba(28, 57, 96, .35); }
+h1 { font-size: clamp(2.2rem, 7vw, 3.7rem); margin-bottom: 12px; }
+h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+p { line-height: 1.8; }
+
+.subtitle {
+  color: white;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 6px rgba(28, 57, 96, .3);
+}
+
+.card {
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 24px;
+  padding: clamp(22px, 5vw, 38px);
+  margin: 25px auto;
+  box-shadow: 0 15px 45px rgba(31, 64, 105, .22);
+  text-align: left;
+}
+
+.card p { white-space: pre-line; }
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 23px;
+  margin: 7px;
+  color: white;
+  background: #527fbd;
+  box-shadow: 0 5px 14px rgba(49, 91, 145, .22);
+  transition: transform .2s, background .2s;
+}
+
+button:hover {
+  background: #315b91;
+  transform: translateY(-2px);
+}
+
+button:focus-visible {
+  outline: 3px solid #294466;
+  outline-offset: 3px;
+}
+
+.secondary {
+  background: white;
+  color: #315b91;
+  border: 1px solid #b7cde9;
+}
+
+.rose {
+  font-size: 5rem;
+  margin: 10px;
+  filter: drop-shadow(0 8px 12px rgba(37, 61, 93, .2));
 }
 
 .envelope {
-  position: absolute;
-  inset: 20px 0 0;
-  height: 170px;
-  background: #dceafa;
+  position: relative;
+  width: 190px;
+  height: 130px;
+  margin: 35px auto 25px;
+  background: #fff;
+  border: 2px solid #d5e4f8;
   border-radius: 8px;
-  box-shadow: 0 18px 35px #698eb529;
-  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(35, 65, 105, .25);
 }
 
-.envelope::before,
-.envelope::after {
+.envelope:before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 8px;
-}
-
-.envelope::before {
-  background: #c6dcf4;
-  clip-path: polygon(0 0, 50% 58%, 100% 0);
-  z-index: 3;
-  transform-origin: top;
-  transition: transform .9s ease, z-index .1s .45s;
-}
-
-.envelope::after {
-  background: #edf5ff;
-  clip-path: polygon(0 100%, 0 0, 50% 57%, 100% 0, 100% 100%);
-  z-index: 2;
-}
-
-.envelope.open::before {
-  transform: rotateX(180deg);
-  z-index: 1;
-}
-
-.envelope-heart {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  top: 57%;
-  transform: translate(-50%, -50%);
-  color: #729fce;
-  font-size: 29px;
-  transition: opacity .3s;
-}
-
-.envelope.open .envelope-heart { opacity: 0; }
-
-.letter-sheet {
-  position: absolute;
-  z-index: 1;
-  left: 8%;
-  bottom: 4px;
-  width: 84%;
-  height: 155px;
-  background: #fff;
-  border-radius: 5px;
-  transition: transform 1s .2s ease, height 1s .2s ease;
-  box-shadow: 0 2px 10px #7188a51c;
-}
-
-.envelope.open .letter-sheet {
-  transform: translateY(-100px);
-  height: 180px;
-}
-
-.letter-reveal {
-  display: none;
-  animation: fadeIn .9s ease both;
-}
-
-.letter-reveal.visible { display: block; }
-
-.letter-text {
-  white-space: pre-line;
-  font-size: 1.2rem;
-  line-height: 1.68;
-  color: #536a84;
-}
-
-.letter-text .signoff {
-  text-align: center;
-  color: #527ba7;
-  font-weight: 600;
-  margin-top: 25px;
-}
-
-/* Regalo */
-.gift-scene {
-  width: 180px;
-  height: 170px;
-  margin: 25px auto;
-  position: relative;
-  cursor: pointer;
-}
-
-.gift-box {
-  position: absolute;
-  width: 150px;
-  height: 100px;
-  bottom: 10px;
-  left: 15px;
-  border-radius: 7px;
-  background: #a9ccec;
-  box-shadow: 0 15px 25px #759ac233;
-}
-
-.gift-box::before {
-  content: "";
-  position: absolute;
-  left: 60px;
-  top: 0;
-  height: 100%;
-  width: 30px;
-  background: #f7faff;
-}
-
-.gift-lid {
-  position: absolute;
-  left: 5px;
-  top: 48px;
-  width: 170px;
-  height: 28px;
-  background: #85b2e1;
+  background: #e2edfc;
+  clip-path: polygon(0 0, 50% 57%, 100% 0);
   border-radius: 6px;
-  z-index: 2;
-  transition: transform .7s ease;
 }
 
-.gift-lid::after {
-  content: "";
+.envelope:after {
+  content: "🩵";
   position: absolute;
-  width: 30px;
-  height: 28px;
-  left: 70px;
-  background: #f7faff;
+  font-size: 30px;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
 }
 
-.gift-bow {
-  position: absolute;
-  top: 15px;
-  left: 70px;
-  width: 40px;
-  height: 30px;
-  border: 8px solid #fff;
-  border-radius: 50% 50% 20% 50%;
-  z-index: 3;
-  transition: transform .7s ease;
+.gift {
+  font-size: 7rem;
+  margin: 15px;
+  animation: bob 2s ease-in-out infinite;
 }
 
-.gift-bow::after {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: -5px;
-  width: 40px;
-  height: 30px;
-  border: 8px solid #fff;
-  border-radius: 50% 50% 50% 20%;
-}
-
-.gift-scene.open .gift-lid {
-  transform: translate(-15px, -55px) rotate(-13deg);
-}
-
-.gift-scene.open .gift-bow {
-  transform: translateY(-48px) rotate(-12deg);
-}
-
-/* Cuestionario */
-.quiz-progress {
-  width: 100%;
-  height: 7px;
-  border-radius: 10px;
-  background: #e2edf9;
-  margin: 18px 0 25px;
-  overflow: hidden;
-}
-
-.quiz-progress-fill {
-  width: 0%;
-  height: 100%;
-  background: #7eaddd;
-  transition: width .3s;
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
 }
 
 .question {
-  color: #496b91;
-  font-size: 1.3rem;
-  font-weight: 800;
-  line-height: 1.5;
-  margin: 18px 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 18px;
 }
 
 .answers {
   display: grid;
-  gap: 11px;
-  margin: 20px 0;
+  gap: 10px;
 }
 
-.answer {
+.answers button {
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid #dce9f7;
-  border-radius: 14px;
-  background: #fff;
-  color: #526c88;
+  margin: 0;
+  background: #edf4ff;
+  color: #294466;
+  border: 1px solid #cadcf4;
+  box-shadow: none;
+  border-radius: 15px;
   text-align: left;
-  cursor: pointer;
-  transition: background .2s, border .2s;
 }
 
-.answer:hover:not(:disabled) {
-  background: #eff7ff;
-  border-color: #9cc2e9;
+.answers button:hover {
+  background: #dbe9ff;
 }
 
-.answer.correct {
-  border-color: #78b69b;
-  background: #eef9f3;
-}
-
-.answer.wrong {
-  border-color: #dba9b5;
-  background: #fff2f4;
-}
+.answers button:disabled { cursor: default; opacity: .85; }
 
 .feedback {
   min-height: 30px;
-  color: #527ba7;
-  font-weight: 800;
+  font-weight: bold;
+  color: #315b91;
 }
 
-.song-card {
-  text-align: center;
+.progress {
+  height: 8px;
+  border-radius: 20px;
+  background: #e5edf8;
+  overflow: hidden;
+  margin: 15px 0 25px;
 }
 
-.spotify-frame {
+.progress div {
+  height: 100%;
+  width: 0;
+  background: #739bd1;
+  transition: width .3s;
+}
+
+.spotify {
   width: 100%;
   height: 152px;
   border: 0;
   border-radius: 14px;
-  margin: 18px 0;
+  margin: 12px 0;
 }
 
-.song-disc {
-  width: 125px;
-  height: 125px;
-  margin: 25px auto;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #f8fbff 0 8%, #8dbce9 9% 13%, #d5e7f8 14% 22%, #719fd2 23% 30%, #e4effb 31% 43%, #8dbce9 44% 55%, #d4e7f9 56% 70%, #fff 71%);
-  box-shadow: 0 12px 35px #759ac233;
-  animation: turn 8s linear infinite;
+.small {
+  font-size: .9rem;
+  color: #5d7190;
 }
-
-@keyframes turn { to { transform: rotate(360deg); } }
 
 .garden {
-  position: relative;
-  padding: 30px 0 15px;
+  font-size: clamp(2rem, 8vw, 4rem);
+  margin: 20px 0;
+  letter-spacing: 4px;
 }
 
-.garden-roses {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  gap: 3px;
-  margin: 15px auto;
-}
+[hidden] { display: none !important; }
 
-.garden-roses .rose:nth-child(1),
-.garden-roses .rose:nth-child(3) {
-  width: 80px;
-  height: 80px;
-}
-
-.garden-roses .rose:nth-child(2) {
-  width: 125px;
-  height: 125px;
-}
-
-.secret-envelope {
-  width: min(300px, 85vw);
-  height: 180px;
-  margin: 28px auto;
-  position: relative;
-  background: #e7f1fd;
-  border-radius: 7px;
-  box-shadow: 0 15px 35px #759ac233;
-  cursor: pointer;
-}
-
-.secret-envelope::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #c8def5;
-  clip-path: polygon(0 0, 50% 60%, 100% 0);
-  transform-origin: top;
-  transition: transform .9s, z-index .1s .45s;
-  z-index: 3;
-}
-
-.secret-envelope::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #f2f7ff;
-  clip-path: polygon(0 100%, 0 0, 50% 57%, 100% 0, 100% 100%);
-  z-index: 2;
-}
-
-.secret-envelope.open::before {
-  transform: rotateX(180deg);
-  z-index: 1;
-}
-
-.secret-envelope .seal {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  top: 57%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #fff;
-  color: #6c99ca;
-  font-size: 1.3rem;
-  transition: opacity .3s;
-}
-
-.secret-envelope.open .seal { opacity: 0; }
-
-.secret-letter {
-  display: none;
-  animation: fadeIn 1s ease both;
-}
-
-.secret-letter.visible { display: block; }
-
-.footer-note {
-  margin-top: 30px;
-  font-size: .82rem;
-  color: #8a9bb0;
+footer {
+  margin-top: 35px;
+  color: white;
+  text-shadow: 0 1px 6px rgba(28, 57, 96, .3);
+  font-size: .9rem;
 }
 
 @media (max-width: 480px) {
-  .screen { padding: 28px 15px; }
-  .card { padding: 23px 19px; border-radius: 20px; }
-  .letter-text { font-size: 1.08rem; }
-  .corner-rose { width: 85px; height: 85px; }
-  .intro { font-size: .97rem; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
+  main { padding-top: 28px; }
+  .card { border-radius: 19px; }
+  .envelope { transform: scale(.9); margin: 20px auto; }
 }
 </style>
 </head>
 
 <body>
-
-<!-- Ilustración floral original en SVG -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="white-rose" viewBox="0 0 120 140">
-      <path d="M58 75 C61 98 54 119 46 135" stroke="#739c83" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <path d="M54 111 C34 92 19 103 28 117 C38 123 47 119 54 111Z" fill="#a9cbb4"/>
-      <path d="M52 96 C73 81 87 91 79 104 C68 110 59 104 52 96Z" fill="#b7d5bf"/>
-      <g stroke="#dfe5ed" stroke-width="1.4">
-        <ellipse cx="59" cy="48" rx="18" ry="31" fill="#fff" transform="rotate(-2 59 48)"/>
-        <ellipse cx="43" cy="54" rx="17" ry="27" fill="#fafcff" transform="rotate(-42 43 54)"/>
-        <ellipse cx="75" cy="54" rx="17" ry="27" fill="#f9fbff" transform="rotate(42 75 54)"/>
-        <ellipse cx="47" cy="38" rx="16" ry="25" fill="#fff" transform="rotate(-38 47 38)"/>
-        <ellipse cx="72" cy="38" rx="16" ry="25" fill="#f9fbff" transform="rotate(38 72 38)"/>
-        <ellipse cx="60" cy="32" rx="15" ry="23" fill="#fff"/>
-        <ellipse cx="60" cy="53" rx="24" ry="22" fill="#fff" transform="rotate(-10 60 53)"/>
-        <ellipse cx="60" cy="52" rx="15" ry="17" fill="#f5f8fc"/>
-        <path d="M52 53 C48 44 57 39 64 43 C72 47 66 56 59 56 C54 56 54 49 59 48 C64 47 65 52 61 53" fill="none" stroke="#d3dce8" stroke-width="2.4" stroke-linecap="round"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <div id="petals" aria-hidden="true"></div>
 
-<!-- PANTALLA 1: BIENVENIDA -->
+<main>
+
 <section id="welcome" class="screen active">
-  <svg class="corner-rose left"><use href="#white-rose"/></svg>
-  <svg class="corner-rose right"><use href="#white-rose"/></svg>
-
-  <main class="content">
-    <div class="rose-cluster" aria-hidden="true">
-      <svg class="rose rose-small"><use href="#white-rose"/></svg>
-      <svg class="rose"><use href="#white-rose"/></svg>
-      <svg class="rose rose-small"><use href="#white-rose"/></svg>
-    </div>
-
-    <div class="eyebrow">Un detalle hecho con amor</div>
-    <h1>Para Gabriela</h1>
-    <p class="intro">
-      Hay regalos que se pueden envolver, y hay otros que se preparan con el corazón 🩵
-    </p>
-    <button class="btn" onclick="showScreen('firstLetter')">
-      Tengo una sorpresa para ti
-    </button>
-    <p class="small-note">Hecho especialmente para ti, preciosa</p>
-  </main>
+  <div class="rose">🌹</div>
+  <h1>Para Gabriela</h1>
+  <p class="subtitle">Hay regalos que se pueden envolver, y hay otros que se preparan con el corazón 🩵</p>
+  <div style="margin-top:35px">
+    <button onclick="showScreen('firstEnvelope')">Tengo algo para ti</button>
+  </div>
+  <footer>Un pequeño detalle hecho especialmente para ti</footer>
 </section>
 
-<!-- PANTALLA 2: PRIMER SOBRE -->
+<section id="firstEnvelope" class="screen">
+  <h2>Un sobre para ti</h2>
+  <p class="subtitle">Preciosa, abre tu primer regalito 🩵</p>
+  <div class="envelope"></div>
+  <button onclick="showScreen('firstLetter')">Abrir mi carta</button>
+</section>
+
 <section id="firstLetter" class="screen">
-  <main class="content">
-    <div class="eyebrow">Unas palabras para ti</div>
-    <h2>Antes de empezar...</h2>
-    <p class="intro">Hay algo que quiero que leas primero, preciosa</p>
+  <h2>Feliz cumpleaños, preciosa</h2>
+  <div class="card">
+    <p>Feliz cumpleaños preciosaa 🩵
 
-    <div class="envelope-area">
-      <div id="firstEnvelope" class="envelope" role="button" tabindex="0"
-           aria-label="Abrir el sobre de la primera carta" onclick="openFirstEnvelope()"
-           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openFirstEnvelope()}">
-        <div class="letter-sheet"></div>
-        <div class="envelope-heart">🩵</div>
-      </div>
-    </div>
+Hoy quiero recordarte lo especial que eres para mí y desearte un nuevo año lleno de momentos bonitos, tranquilidad, amor y muchas razones para que saques esa sonrisa bella que tienes reina
 
-    <p id="firstHint" class="small-note">Toca el sobre para abrirlo</p>
+Espero que la vida te sorprenda de muchas maneras, que puedas cumplir todos tus sueños y que nunca te falten personas que te quieran de vdd
 
-    <div id="firstLetterReveal" class="letter-reveal">
-      <article class="card">
-        <div class="center">
-          <svg class="rose rose-small"><use href="#white-rose"/></svg>
-          <h2>Feliz cumpleaños, preciosa</h2>
-        </div>
-        <div class="letter-text">Feliz cumpleaños preciosaa 🩵
+Preparé este pequeño detalle con mucho amor, porque quería regalarte algo diferente y que pudieras guardar y llevarlo para todos lados y tenerlo como un recuerdo bonito
 
-Hoy quiero recordarte lo especial que eres para mi y desearte un nuevo año lleno de momentos bonitos, tranquilidad, amor y muchas razones para que saques esa sonrisa bella que tienes reina.
+Superaremos todos los obstáculos que la vida nos ponga si es que tú me lo permites, eres mi persona, espero yo tmb ser la tuya, quiero todo contigo, preciosa eres una persona muy especial y única, haces cambiar a las personas, y sino mira lo que te estoy haciendo reina, nadie lo creería lit, te amoooo preciosa muchísimo 🩵
 
-Espero que la vida te sorprenda de muchas maneras, que puedas cumplir todos tus sueños y que nunca te falten personas que te quieran de vdd.
+Ojalá, cuando vuelvas a ver esta página te saque aunque sea una pequeña sonrisa 🩵
 
-Preparé este pequeño detalle con mucho amor, porque quería regalarte algo diferente y que pudieras guardar y llevarlo para todos lados y tenerlo como un recuerdo bonito.
-
-Superaremos todos los obstáculos que la vida nos ponga si es que tu me lo permites, eres mi persona, espero yo tmb ser la tuya, quiero todo contigo, Preciosa eres una persona muy especial y única, haces cambiar a las personas, y sino mira lo que te estoy haciendo reina, nadie lo creería lit, te amoooo preciosa muchísimo 🩵.
-
-Ojalá, cuando vuelvas a ver esta página te saque aunque sea una pequeña sonrisa 🩵.</div>
-        <p class="letter-text signoff">Con mucho amor, para ti 🩵</p>
-      </article>
-      <div class="center">
-        <button class="btn" onclick="showScreen('gift')">Continuar con tu regalo</button>
-      </div>
-    </div>
-  </main>
+                 Con mucho amor, para ti 🩵</p>
+  </div>
+  <button onclick="showScreen('gift')">Hay algo más para ti 👀</button>
 </section>
 
-<!-- PANTALLA 3: EL REGALO Y SU HISTORIA -->
 <section id="gift" class="screen">
-  <main class="content">
-    <div class="eyebrow">Un pequeño recuerdo</div>
-    <h2>¿Quién diría, preciosa?</h2>
-    <p class="intro">Hay comienzos que una no se espera y que terminan significando muchísimo</p>
+  <h2>Tu regalito, preciosa</h2>
+  <div class="gift">🎁</div>
+  <div class="card">
+    <p>Y pensar que todo esto empezó por un grupo de wsp JAJAJAJA, quién diría que de algo tan simple terminarías convirtiéndote en una persona tan especial para mí, preciosa 🩵
 
-    <div id="giftScene" class="gift-scene" role="button" tabindex="0"
-         aria-label="Abrir el regalo" onclick="openGift()"
-         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGift()}">
-      <div class="gift-box"></div>
-      <div class="gift-lid"></div>
-      <div class="gift-bow"></div>
-    </div>
+Eres re especial para mí, reina, y quería hacerte algo diferente para que tengas un recuerdito bonito de mí
 
-    <p id="giftHint" class="small-note">Toca la cajita para abrirla</p>
+Y sí, también tenía que poner esa canción que siempre me dices que eres JAJAJAJA, porque obvio no podía faltar en tu regalo 🩵
 
-    <div id="giftMessage" class="card" hidden>
-      <p>Y pensar que todo esto empezó por un grupo de wsp JAJAJAJA, quién diría que de algo tan simple terminarías convirtiéndote en una persona tan especial para mí, preciosa 🩵</p>
-      <p>Eres re especial para mí, reina, y quería hacerte algo diferente para que tengas un recuerdito bonito de mí</p>
-      <p>Y sí, también tenía que poner esa canción que siempre me dices que eres JAJAJAJA, porque obvio no podía faltar en tu regalo 🩵</p>
-      <p><strong>Te amoooo, preciosa</strong></p>
-      <div class="center">
-        <button class="btn" onclick="startQuiz()">Vamos con unas preguntitas</button>
-      </div>
-    </div>
-  </main>
+Te amoooo, preciosa</p>
+  </div>
+  <button onclick="showScreen('quiz')">A ver cuánto te acuerdas 👀</button>
 </section>
 
-<!-- PANTALLA 4: CUESTIONARIO -->
 <section id="quiz" class="screen">
-  <main class="content">
-    <div class="eyebrow">A ver cuánto recuerdas</div>
-    <h2>Un pequeño desafío</h2>
-    <p class="intro">Ocho preguntitas sobre ti y nuestra historia, preciosa 👀</p>
-
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center">
-        <span id="questionNumber" class="eyebrow">Pregunta 1 de 8</span>
-        <span id="scoreDisplay" class="small-note">Puntaje: 0</span>
-      </div>
-      <div class="quiz-progress"><div id="progressFill" class="quiz-progress-fill"></div></div>
-      <div id="questionText" class="question"></div>
-      <div id="answers" class="answers"></div>
-      <div id="feedback" class="feedback" aria-live="polite"></div>
-      <div class="center">
-        <button id="nextQuestion" class="btn" onclick="nextQuestion()" hidden>Siguiente pregunta</button>
-      </div>
-    </div>
-    <p class="small-note">Cada pregunta cuenta, pero lo importante es que te diviertas 🩵</p>
-  </main>
+  <h2>¿Cuánto recuerdas?</h2>
+  <p class="subtitle">Ocho preguntitas sobre ti, preciosa 🩵</p>
+  <div class="card">
+    <div id="quizCounter" class="small"></div>
+    <div class="progress"><div id="progressFill"></div></div>
+    <div id="question" class="question"></div>
+    <div id="answers" class="answers"></div>
+    <p id="feedback" class="feedback" aria-live="polite"></p>
+    <button id="nextQuestion" onclick="nextQuestion()" hidden>Siguiente pregunta</button>
+  </div>
 </section>
 
-<!-- PANTALLA 5: RESULTADO DEL CUESTIONARIO -->
-<section id="quizResult" class="screen">
-  <main class="content">
-    <svg class="rose"><use href="#white-rose"/></svg>
-    <div class="eyebrow">Terminaste el desafío</div>
-    <h2 id="resultTitle">¡Muy bien!</h2>
-    <p id="resultScore" class="intro"></p>
-    <div class="card center">
-      <p id="resultMessage" style="font-size:1.12rem"></p>
-      <p>Y ahora viene una parte que no podía faltar en tu regalo 🩵</p>
-      <button class="btn" onclick="showScreen('song')">Escuchar tu canción</button>
-    </div>
-  </main>
-</section>
-
-<!-- PANTALLA 6: CANCIÓN -->
 <section id="song" class="screen">
-  <main class="content">
-    <div class="eyebrow">Una canción muy tuya</div>
-    <h2>111</h2>
-    <p class="intro">Yan Block</p>
+  <h2>Tu canción, preciosa 🩵</h2>
+  <div class="card">
+    <p>Y cómo no iba a estar tu canción aquí, preciosa JAJAJAJA, si siempre me dices que eres esta canción 🩵
 
-    <div class="card song-card">
-      <div class="song-disc" aria-hidden="true"></div>
-      <p>Y cómo no iba a estar tu canción aquí, preciosa JAJAJAJA, si siempre me dices que eres esta canción 🩵</p>
-      <p>Así que ahora también tendrá su pequeño lugar en este regalo, para que puedas escucharla cada vez que quieras</p>
-
-      <iframe
-        class="spotify-frame"
-        src="https://open.spotify.com/embed/track/2SPBFiD8iITb8CKJGz1TEQ?utm_source=generator&theme=0"
-        title="Reproductor de Spotify: 111, Yan Block"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
-
-      <p class="small-note">Si no comienza, toca reproducir en el reproductor de Spotify</p>
-      <button class="btn" onclick="showScreen('garden')">Todavía queda una sorpresa</button>
-    </div>
-  </main>
+Así que ahora también tendrá su pequeño lugar en este regalo, para que puedas escucharla cada vez que quieras</p>
+    <iframe class="spotify"
+      src="https://open.spotify.com/embed/track/2SPBFiD8iITb8CKJGz1TEQ?utm_source=generator&theme=0"
+      title="111 de Yan Block en Spotify"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+    <p class="small">Si no se reproduce, prueba pulsando el botón de reproducción o iniciando sesión en Spotify</p>
+  </div>
+  <button onclick="showScreen('garden')">Continuar con tu regalito 🩵</button>
 </section>
 
-<!-- PANTALLA 7: JARDÍN Y SEGUNDO SOBRE -->
 <section id="garden" class="screen">
-  <main class="content">
-    <div class="eyebrow">Un último detallito</div>
-    <h2>Un jardín para ti</h2>
-    <p class="intro">Preciosa, todavía queda una cosita más para ti 🩵</p>
+  <h2>Un pequeño jardín para ti</h2>
+  <p class="subtitle">Porque las cosas bonitas también florecen a la distancia</p>
+  <div class="garden">🤍 🌷 🩵 🌹 🤍</div>
+  <div class="card">
+    <p>Preciosa, ojalá la vida nos regale la oportunidad de compartir muchos momentos bonitos juntas, de reírnos por tonterías, conocer lugares y crear recuerdos que algún día podamos mirar con una sonrisa 🩵</p>
+  </div>
+  <div class="envelope"></div>
+  <button onclick="showScreen('secret')">Hay un último sobre para ti</button>
+</section>
 
-    <div class="garden">
-      <div class="garden-roses" aria-hidden="true">
-        <svg class="rose"><use href="#white-rose"/></svg>
-        <svg class="rose"><use href="#white-rose"/></svg>
-        <svg class="rose"><use href="#white-rose"/></svg>
-      </div>
-      <p class="small-note">Hecho pensando en ti</p>
+<section id="secret" class="screen">
+  <h2>Una última cartita</h2>
+  <p class="subtitle">Esta sí es la última, lo prometo JAJAJA 🩵</p>
+  <div class="envelope"></div>
+  <button onclick="document.getElementById('secretLetter').hidden = false; this.hidden = true">
+    Abrir sobre secreto
+  </button>
+  <div id="secretLetter" class="card" hidden>
+    <p>Para mi preciosa 🩵
 
-      <div id="secretEnvelope" class="secret-envelope" role="button" tabindex="0"
-           aria-label="Abrir la última carta" onclick="openSecretEnvelope()"
-           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openSecretEnvelope()}">
-        <div class="seal">🩵</div>
-      </div>
-      <p id="secretHint" class="small-note">Toca el sobre para descubrir tu última sorpresa</p>
-
-      <div id="secretLetter" class="secret-letter">
-        <article class="card">
-          <div class="center">
-            <svg class="rose rose-small"><use href="#white-rose"/></svg>
-            <h2>Para mi preciosa 🩵</h2>
-          </div>
-
-          <div class="letter-text">Y bueno, llegaste hasta el final de este pequeño regalo JAJAJAJA, espero que te haya gustado tanto como a mí me gustó prepararlo para ti
+Y bueno, llegaste hasta el final de este pequeño regalo JAJAJAJA, espero que te haya gustado tanto como a mí me gustó prepararlo para ti
 
 Quería hacerte algo que no fuera solamente un mensaje o un regalo cualquiera, quería crear un pequeño lugar al que pudieras volver cuando quisieras, algo que te recordara lo especial que eres para mí y todo lo bonito que significas en mi vida
 
@@ -838,226 +377,166 @@ Eres muy importante para mí, espero realmente que en algún momento pueda verte
 
 Gracias por aparecer en mi vida de una manera tan inesperada, preciosa, y por convertir algo tan simple como un grupo de WhatsApp en el comienzo de algo tan especial para mí
 
-Te amo muchísimo, Gabriela, feliz cumpleaños otra vez 🩵</div>
-
-          <p class="letter-text signoff">Con mucho amor, para ti 🩵</p>
-        </article>
-
-        <div class="center">
-          <h2>Feliz cumpleaños, mi preciosa 🩵</h2>
-          <p>Espero que esta pequeña sorpresa te saque una sonrisa cada vez que vuelvas a ella</p>
-          <button class="btn secondary" onclick="showScreen('welcome')">Volver al inicio</button>
-        </div>
-      </div>
-    </div>
-    <p class="footer-note">Un pequeño regalo para guardar y volver a visitar</p>
-  </main>
+Te amo muchísimo, Gabriela, feliz cumpleaños otra vez 🩵</p>
+  </div>
+  <p class="subtitle">Hecho con mucho amor para ti 🩵</p>
+  <button class="secondary" onclick="showScreen('welcome')">Volver al inicio</button>
 </section>
 
+</main>
+
 <script>
-const screenIds = [
-  'welcome', 'firstLetter', 'gift', 'quiz',
-  'quizResult', 'song', 'garden'
-];
+const petalLayer = document.getElementById("petals");
+
+for (let i = 0; i < 28; i++) {
+  const petal = document.createElement("span");
+  petal.className = "petal";
+  petal.style.left = Math.random() * 100 + "%";
+  petal.style.animationDuration = (7 + Math.random() * 9) + "s";
+  petal.style.animationDelay = (-Math.random() * 15) + "s";
+  petal.style.opacity = (0.65 + Math.random() * 0.35).toFixed(2);
+  petal.style.transform = "scale(" + (0.65 + Math.random() * 0.65) + ")";
+  petalLayer.appendChild(petal);
+}
 
 function showScreen(id) {
-  screenIds.forEach(screenId => {
-    document.getElementById(screenId).classList.toggle('active', screenId === id);
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
   });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function makePetals() {
-  const holder = document.getElementById('petals');
-  for (let i = 0; i < 16; i++) {
-    const petal = document.createElement('span');
-    petal.className = 'falling-petal';
-    petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = (9 + Math.random() * 13) + 's';
-    petal.style.animationDelay = (-Math.random() * 18) + 's';
-    petal.style.opacity = (0.35 + Math.random() * 0.5).toString();
-    petal.style.transform = 'scale(' + (0.55 + Math.random() * 0.7) + ')';
-    holder.appendChild(petal);
-  }
-}
-makePetals();
-
-function openFirstEnvelope() {
-  const envelope = document.getElementById('firstEnvelope');
-  if (envelope.classList.contains('open')) return;
-  envelope.classList.add('open');
-  document.getElementById('firstHint').textContent = 'Tu carta está aquí, preciosa 🩵';
-  setTimeout(() => {
-    document.getElementById('firstLetterReveal').classList.add('visible');
-  }, 850);
-}
-
-function openGift() {
-  document.getElementById('giftScene').classList.add('open');
-  document.getElementById('giftHint').textContent = 'Una historia que empezó por un grupo de WhatsApp 🩵';
-  document.getElementById('giftMessage').hidden = false;
-}
-
-const questions = [
+const quiz = [
   {
-    text: '¿Cuál es la bebida favorita de Gabriela?',
-    options: ['Coca-Cola', 'Monster', 'Fanta', 'Sprite'],
-    correct: 1
-  },
-  {
-    text: '¿Cuáles son las flores favoritas de Gabriela?',
-    options: ['Tulipanes', 'Girasoles', 'Rosas blancas', 'Lirios'],
-    correct: 2
-  },
-  {
-    text: '¿De qué equipo es Gabriela?',
-    options: ['River Plate', 'Racing Club', 'Independiente', 'Boca Juniors'],
-    correct: 3
-  },
-  {
-    text: '¿Quién es el jugador favorito de Gabriela?',
-    options: ['Julián Álvarez', 'Leandro Paredes', 'Enzo Fernández', 'Lautaro Martínez'],
-    correct: 1
-  },
-  {
-    text: '¿Qué día empezamos a hablar?',
-    options: ['3 de junio', '16 de junio', '20 de junio', '1 de julio'],
-    correct: 1
-  },
-  {
-    text: '¿Dónde comenzó nuestra historia?',
-    options: ['En un grupo de WhatsApp', 'En Instagram', 'En TikTok', 'En Facebook'],
+    q: "¿Cuál es tu bebida favorita?",
+    a: ["Monster", "Coca-Cola", "Café", "Fanta"],
     correct: 0
   },
   {
-    text: '¿Qué canción me dices que te representa?',
-    options: ['Una canción de Bad Bunny', 'Una canción de Feid', '111, de Yan Block', 'Una canción de Mora'],
+    q: "¿Cuáles son tus flores favoritas?",
+    a: ["Girasoles", "Rosas blancas", "Tulipanes", "Margaritas"],
+    correct: 1
+  },
+  {
+    q: "¿De qué equipo eres?",
+    a: ["River Plate", "Racing", "Boca Juniors", "Independiente"],
     correct: 2
   },
   {
-    text: '¿Cuál de estas opciones reúne varias comidas que me contaste que sueles comer?',
-    options: [
-      'Pizza, ravioles y fideos con salsa',
-      'Asado, choripán y provoleta',
-      'Milanesa napolitana, locro y humita',
-      'Empanadas, pastelitos y tortilla santiagueña'
+    q: "¿Cuál es tu jugador favorito?",
+    a: ["Julián Álvarez", "Enzo Fernández", "Leandro Paredes", "Lautaro Martínez"],
+    correct: 2
+  },
+  {
+    q: "¿Qué día empezamos a hablar?",
+    a: ["16 de junio", "3 de noviembre", "16 de julio", "25 de agosto"],
+    correct: 0
+  },
+  {
+    q: "¿Dónde empezó todo?",
+    a: ["Instagram", "TikTok", "Un grupo de WhatsApp", "Facebook"],
+    correct: 2
+  },
+  {
+    q: "¿Qué canción dices que te representa?",
+    a: ["111 — Yan Block", "Otra canción", "Una de Boca", "Una de amor"],
+    correct: 0
+  },
+  {
+    q: "¿Qué grupo tiene comidas que me has contado que comes?",
+    a: [
+      "Pizza, ravioles y pasta con salsa",
+      "Solo ensaladas y sopas",
+      "Solo pescado y arroz",
+      "Solo dulces y postres"
     ],
     correct: 0
   }
 ];
 
-let questionIndex = 0;
+let current = 0;
 let score = 0;
 let answered = false;
 
-function startQuiz() {
-  questionIndex = 0;
-  score = 0;
-  answered = false;
-  showScreen('quiz');
-  renderQuestion();
-}
-
 function renderQuestion() {
   answered = false;
-  const q = questions[questionIndex];
+  const item = quiz[current];
 
-  document.getElementById('questionNumber').textContent =
-    'Pregunta ' + (questionIndex + 1) + ' de ' + questions.length;
-  document.getElementById('scoreDisplay').textContent = 'Puntaje: ' + score;
-  document.getElementById('progressFill').style.width =
-    (questionIndex / questions.length * 100) + '%';
-  document.getElementById('questionText').textContent = q.text;
-  document.getElementById('feedback').textContent = '';
-  document.getElementById('nextQuestion').hidden = true;
+  document.getElementById("quizCounter").textContent =
+    "Pregunta " + (current + 1) + " de " + quiz.length;
 
-  const answers = document.getElementById('answers');
-  answers.innerHTML = '';
+  document.getElementById("progressFill").style.width =
+    (current / quiz.length * 100) + "%";
 
-  q.options.forEach((option, index) => {
-    const button = document.createElement('button');
-    button.className = 'answer';
-    button.textContent = String.fromCharCode(65 + index) + ') ' + option;
-    button.addEventListener('click', () => selectAnswer(index, button));
-    answers.appendChild(button);
+  document.getElementById("question").textContent = item.q;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextQuestion").hidden = true;
+
+  const container = document.getElementById("answers");
+  container.innerHTML = "";
+
+  item.a.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.textContent = answer;
+    button.onclick = () => chooseAnswer(index, button);
+    container.appendChild(button);
   });
 }
 
-function selectAnswer(selectedIndex, selectedButton) {
+function chooseAnswer(index, selectedButton) {
   if (answered) return;
   answered = true;
 
-  const q = questions[questionIndex];
-  const buttons = document.querySelectorAll('.answer');
+  const item = quiz[current];
+  const buttons = document.querySelectorAll("#answers button");
   buttons.forEach(button => button.disabled = true);
 
-  if (selectedIndex === q.correct) {
+  if (index === item.correct) {
     score++;
-    selectedButton.classList.add('correct');
-    document.getElementById('feedback').textContent = 'SIIII, ESA ERA JAJAJAJA 🩵';
+    document.getElementById("feedback").textContent =
+      "SÍÍÍ, esa era JAJAJA 🩵";
   } else {
-    selectedButton.classList.add('wrong');
-    buttons[q.correct].classList.add('correct');
-    document.getElementById('feedback').textContent =
-      'NELL JAJAJAJA, la respuesta era ' + q.options[q.correct] + ' 👀';
+    document.getElementById("feedback").textContent =
+      "JAJAJA, casi preciosa, la respuesta era: " + item.a[item.correct];
   }
 
-  document.getElementById('scoreDisplay').textContent = 'Puntaje: ' + score;
-  document.getElementById('progressFill').style.width =
-    ((questionIndex + 1) / questions.length * 100) + '%';
+  selectedButton.style.borderColor =
+    index === item.correct ? "#527fbd" : "#bd8a9a";
 
-  const nextButton = document.getElementById('nextQuestion');
-  nextButton.textContent = questionIndex === questions.length - 1
-    ? 'Ver mi resultado'
-    : 'Siguiente pregunta';
-  nextButton.hidden = false;
+  document.getElementById("nextQuestion").hidden = false;
+  document.getElementById("nextQuestion").textContent =
+    current === quiz.length - 1 ? "Ver resultado" : "Siguiente pregunta";
 }
 
 function nextQuestion() {
   if (!answered) return;
 
-  if (questionIndex < questions.length - 1) {
-    questionIndex++;
+  current++;
+
+  if (current < quiz.length) {
     renderQuestion();
   } else {
-    showResult();
+    document.getElementById("question").textContent =
+      "¡Terminaste, preciosa! 🩵";
+    document.getElementById("answers").innerHTML = "";
+    document.getElementById("quizCounter").textContent =
+      "Resultado: " + score + " de " + quiz.length;
+    document.getElementById("progressFill").style.width = "100%";
+    document.getElementById("feedback").textContent =
+      score === quiz.length
+        ? "¡Las acertaste todas! JAJAJA, sabes que te conozco 🩵"
+        : "Este regalito es para ti, así que ganaste igual JAJAJA 🩵";
+    document.getElementById("nextQuestion").hidden = false;
+    document.getElementById("nextQuestion").textContent =
+      "Escuchar tu canción";
+    document.getElementById("nextQuestion").onclick = () => {
+      showScreen("song");
+    };
   }
 }
 
-function showResult() {
-  document.getElementById('resultScore').textContent =
-    'Tu puntaje fue ' + score + ' de ' + questions.length;
-  let title, message;
-
-  if (score === 8) {
-    title = '¡PERFECTA, PRECIOSA!';
-    message = 'JAJAJAJA, PERFECTA, PRECIOSA, NO FALLASTE NI UNA 👀🩵';
-  } else if (score >= 6) {
-    title = '¡Muy bien, Gabriela!';
-    message = 'MUY BIENNN, GABRIELA, CASI PERFECTA JAJAJA 🩵';
-  } else if (score >= 4) {
-    title = 'Tenemos que repasar';
-    message = 'JAJAJAJA, TENEMOS QUE REPASAR UNAS COSITAS 👀';
-  } else {
-    title = 'NELL JAJAJAJA';
-    message = '¿Y SI VOLVEMOS A INTENTARLO? 👀🩵';
-  }
-
-  document.getElementById('resultTitle').textContent = title;
-  document.getElementById('resultMessage').textContent = message;
-  showScreen('quizResult');
-}
-
-function openSecretEnvelope() {
-  const envelope = document.getElementById('secretEnvelope');
-  if (envelope.classList.contains('open')) return;
-  envelope.classList.add('open');
-  document.getElementById('secretHint').textContent = 'Una última cosita para ti 🩵';
-  setTimeout(() => {
-    document.getElementById('secretLetter').classList.add('visible');
-  }, 850);
-}
+renderQuestion();
 </script>
-
 </body>
 </html>
