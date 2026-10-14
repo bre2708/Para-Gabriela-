@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#739bd1">
-<title>Para Gabriela 🩵</title>
+<meta name="theme-color" content="#527fbd">
+<title>Para Gabriela 💙</title>
 
 <style>
 * {
@@ -12,67 +12,39 @@
 }
 
 :root {
-    --azul: #173e70;
-    --azul-oscuro: #102e55;
-    --azul-claro: #dcecff;
-    --blanco: #ffffff;
-    --rosa: #fff1f6;
+    --navy: #102f59;
+    --navy2: #0a2242;
+    --blue: #527fbd;
+    --pale: #eaf3ff;
+    --white: #fff;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Georgia, 'Times New Roman', serif;
-    color: #17365e;
-    text-align: center;
-    background: linear-gradient(
-        145deg,
-        #739bd1,
-        #527fbd 55%,
-        #fff9fc
-    );
-    background-attachment: fixed;
     overflow-x: hidden;
-}
-
-button {
-    font-family: inherit;
-}
-
-.petal {
-    position: fixed;
-    top: -40px;
-    z-index: 0;
-    pointer-events: none;
-    color: white;
-    font-size: 22px;
-    text-shadow: 0 2px 5px #315681;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(540deg);
-        opacity: 0.15;
-    }
+    font-family: Georgia, "Times New Roman", serif;
+    color: #24466f;
+    text-align: center;
+    background: linear-gradient(145deg, #739bd1, #527fbd 55%, #eaf1fc);
+    background-attachment: fixed;
 }
 
 main {
     position: relative;
     z-index: 1;
-    width: 100%;
     min-height: 100vh;
-    padding: 24px 15px 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 24px 13px 45px;
 }
 
 .screen {
     display: none;
     width: 100%;
-    max-width: 650px;
-    animation: appear 0.7s ease;
+    max-width: 620px;
+    animation: appear .65s ease;
 }
 
 .screen.active {
@@ -80,35 +52,27 @@ main {
 }
 
 @keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .card {
-    width: 100%;
-    padding: 30px 23px;
-    border: 1px solid rgba(255,255,255,0.9);
-    border-radius: 25px;
-    background: rgba(255,255,255,0.94);
-    box-shadow: 0 12px 35px rgba(20,48,88,0.24);
+    padding: 28px 21px;
+    border: 2px solid rgba(255,255,255,.9);
+    border-radius: 26px;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 14px 40px rgba(12,38,74,.25);
 }
 
 h1 {
-    font-size: clamp(32px, 8vw, 48px);
-    margin: 8px 0 15px;
-    color: #234e80;
+    color: var(--navy);
+    font-size: clamp(34px, 8vw, 48px);
+    margin: 10px 0;
 }
 
 h2 {
+    color: var(--navy);
     font-size: clamp(25px, 6vw, 34px);
-    color: #234e80;
-    margin-top: 8px;
 }
 
 p {
@@ -117,87 +81,181 @@ p {
 }
 
 .subtitle {
-    color: #52749b;
-    font-size: 17px;
+    color: #607fa5;
 }
 
-.rose {
-    font-size: 55px;
-    margin: 10px 0;
-    filter: drop-shadow(0 4px 4px #b9cde5);
+.emoji-title {
+    font-size: 48px;
+    margin: 8px 0;
 }
 
-.small-roses {
-    font-size: 25px;
-    margin: 12px 0;
-}
-
-/* BOTONES: ALTO CONTRASTE */
+/* BOTONES AZUL OSCURO */
 
 .btn {
-    position: relative;
-    z-index: 5;
     display: inline-flex;
-    align-items: center;
     justify-content: center;
-    gap: 8px;
-    width: auto;
+    align-items: center;
+    position: relative;
+    z-index: 3;
     max-width: 100%;
-    min-height: 52px;
-    padding: 14px 23px;
-    margin: 12px 4px 4px;
-    border: 3px solid #ffffff;
-    border-radius: 50px;
-    background: #173e70;
-    color: #ffffff;
+    min-height: 51px;
+    margin: 12px 4px 5px;
+    padding: 13px 22px;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    background: #0b2e59;
+    color: #fff;
+    font-family: inherit;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.4;
-    text-align: center;
     text-decoration: none;
     cursor: pointer;
-    box-shadow:
-        0 5px 0 #0e2c50,
-        0 8px 16px rgba(14,44,80,0.28);
-    transition: transform 0.2s, background 0.2s;
-    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 5px 0 #061a34, 0 7px 15px #102f5933;
+    transition: transform .2s, background .2s;
 }
 
 .btn:hover {
-    background: #285b95;
+    background: #1b477c;
     transform: translateY(-2px);
 }
 
 .btn:active {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 #0e2c50;
-}
-
-.btn-light {
-    background: #ffffff;
-    color: #173e70;
-    border: 3px solid #173e70;
-    box-shadow: 0 5px 0 #b5cbe5;
-}
-
-.btn-light:hover {
-    background: #e7f1ff;
+    box-shadow: 0 2px 0 #061a34;
 }
 
 .button-area {
-    position: relative;
-    z-index: 5;
+    margin-top: 20px;
+}
+
+.footer {
     margin-top: 24px;
+    font-size: 13px;
+    color: #7187a4;
+}
+
+/* PÉTALOS BLANCOS */
+
+.petal {
+    position: fixed;
+    top: -35px;
+    z-index: 0;
+    pointer-events: none;
+    color: #fff;
+    font-size: 23px;
+    text-shadow: 0 1px 4px #24466f, 0 0 7px #fff;
+    animation: falling linear forwards;
+}
+
+@keyframes falling {
+    to {
+        transform: translateY(110vh) rotate(600deg);
+        opacity: .15;
+    }
+}
+
+/* SOBRE INTERACTIVO */
+
+.envelope-area {
+    padding: 25px 0;
+    perspective: 800px;
+}
+
+.envelope {
+    width: min(280px, 85%);
+    height: 175px;
+    margin: 22px auto;
+    position: relative;
+    cursor: pointer;
+    filter: drop-shadow(0 9px 9px #17365e33);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #a9c9ed;
+    border: 2px solid #6c91c2;
+    border-radius: 8px;
+}
+
+.envelope-paper {
+    position: absolute;
+    left: 8%;
+    top: 8%;
+    width: 84%;
+    height: 82%;
+    padding: 18px 8px;
+    background: #fffdfd;
+    color: #23466f;
+    font-size: 18px;
+    transition: transform .8s ease;
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: #d3e6fc;
+    clip-path: polygon(0 0, 100% 0, 50% 65%);
+    transform-origin: top;
+    transition: transform .7s ease;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #b9d5f4;
+    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 6px;
+}
+
+.envelope-seal {
+    position: absolute;
+    z-index: 4;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #0b2e59;
+    color: white;
+    border: 2px solid white;
+    font-size: 21px;
+    transition: opacity .3s;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope.open .envelope-paper {
+    transform: translateY(-70px);
+}
+
+.envelope.open .envelope-seal {
+    opacity: 0;
+}
+
+.open-hint {
+    color: #6884a7;
+    font-size: 14px;
 }
 
 .letter {
-    background: #fffdfd;
-    border: 1px solid #e0eaf7;
-    border-radius: 18px;
-    padding: 23px 20px;
     margin: 20px 0;
-    box-shadow: inset 0 0 15px rgba(140,170,205,0.10);
+    padding: 22px 20px;
+    border: 1px solid #dce7f5;
+    border-radius: 18px;
+    background: #fffdfd;
     text-align: left;
+    box-shadow: inset 0 0 15px #a6c4e514;
 }
 
 .letter p {
@@ -206,112 +264,98 @@ p {
 
 .signature {
     text-align: right;
-    color: #315d8e;
+    color: #315b89;
     font-style: italic;
-    margin-top: 22px;
+    margin-top: 23px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* REGALO INTERACTIVO */
+
+.gift-area {
+    padding: 18px 0 10px;
 }
 
 .gift {
-    width: 150px;
-    height: 125px;
-    margin: 35px auto 25px;
     position: relative;
+    width: 175px;
+    height: 165px;
+    margin: 30px auto 12px;
     cursor: pointer;
-    animation: float 2s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .gift-box {
     position: absolute;
     bottom: 0;
-    left: 10px;
-    width: 130px;
-    height: 90px;
+    left: 12px;
+    width: 151px;
+    height: 105px;
+    background: #9dbfe9;
+    border: 3px solid #fff;
     border-radius: 5px 5px 12px 12px;
-    background: #6c9bd4;
-    border: 3px solid #ffffff;
-    box-shadow: 0 7px 14px rgba(30,60,100,0.22);
+    box-shadow: 0 8px 14px #17365e30;
 }
 
 .gift-box::before {
     content: "";
     position: absolute;
-    width: 22px;
+    left: 60px;
+    top: 0;
     height: 100%;
-    background: #ffffff;
-    left: 51px;
+    width: 25px;
+    background: #fff;
 }
 
 .gift-lid {
     position: absolute;
-    top: 24px;
-    left: 0;
-    width: 150px;
-    height: 28px;
-    border-radius: 7px;
-    background: #315e98;
-    border: 3px solid #ffffff;
     z-index: 2;
+    left: 0;
+    top: 35px;
+    width: 175px;
+    height: 32px;
+    border: 3px solid #fff;
+    border-radius: 7px;
+    background: #315d95;
+    transform-origin: 12% 100%;
+    transition: transform .8s ease;
 }
 
 .gift-bow {
     position: absolute;
-    top: -1px;
-    left: 52px;
-    font-size: 47px;
+    top: 0;
+    left: 56px;
     z-index: 3;
+    font-size: 49px;
+    transition: transform .8s ease;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+.gift.open .gift-lid {
+    transform: translate(-35px, -42px) rotate(-25deg);
 }
 
-.question {
-    font-size: 21px;
+.gift.open .gift-bow {
+    transform: translate(-25px, -45px) rotate(-25deg);
+}
+
+.gift-note {
+    display: none;
+    color: #315b89;
     font-weight: bold;
-    line-height: 1.6;
-    margin: 20px 0;
+    animation: appear .7s ease;
 }
 
-.answers {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin: 20px 0;
+.gift-note.show {
+    display: block;
 }
 
-.answer {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #b8cfea;
-    border-radius: 15px;
-    background: #f3f8ff;
-    color: #214b79;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.answer:hover {
-    background: #dcecff;
-    border-color: #315e98;
-}
-
-.answer:disabled {
-    cursor: default;
-    opacity: 1;
-}
-
-.feedback {
-    min-height: 32px;
-    font-weight: bold;
-    color: #315e98;
-    line-height: 1.6;
-}
+/* QUIZ */
 
 .progress {
     height: 8px;
-    width: 100%;
     background: #e1eaf6;
     border-radius: 10px;
     overflow: hidden;
@@ -319,17 +363,54 @@ p {
 
 .progress-inner {
     height: 100%;
+    background: #0b2e59;
     width: 0;
-    background: #315e98;
-    transition: width 0.3s;
+    transition: width .3s;
 }
 
+.question {
+    margin: 22px 0;
+    font-size: 21px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+    margin: 18px 0;
+}
+
+.answer {
+    padding: 15px;
+    border: 2px solid #b8cde7;
+    border-radius: 14px;
+    background: #f1f6ff;
+    color: #193d69;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.answer:disabled {
+    opacity: 1;
+}
+
+.feedback {
+    min-height: 28px;
+    color: #315b89;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+/* CANCIÓN */
+
 .spotify-box {
-    margin: 24px 0;
-    border-radius: 18px;
     overflow: hidden;
-    border: 2px solid #d5e4f7;
-    background: white;
+    margin: 23px 0;
+    border-radius: 15px;
+    border: 2px solid #d4e3f6;
 }
 
 .spotify-box iframe {
@@ -338,58 +419,93 @@ p {
     border: 0;
 }
 
+/* ROSAS BLANCAS ILUSTRADAS */
+
 .garden {
-    padding: 25px 10px;
-    background: linear-gradient(#f1f7ff, #fff6fa);
-    border-radius: 20px;
+    padding: 22px 12px;
     margin: 20px 0;
+    border: 1px solid #dce8f7;
+    border-radius: 20px;
+    background: linear-gradient(#edf5ff, #fff);
 }
 
-.flower {
-    display: inline-block;
-    font-size: 40px;
-    margin: 5px;
-    animation: float 3s ease-in-out infinite;
+.rose-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4px;
+    margin: 10px auto 20px;
 }
 
-.hidden-letter {
+.rose-svg {
+    width: 85px;
+    max-width: 28%;
+    height: 155px;
+    overflow: visible;
+    filter: drop-shadow(0 3px 2px #8ca8c233);
+    animation: sway 3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.rose-svg:nth-child(2) {
+    height: 185px;
+    animation-delay: -.8s;
+}
+
+.rose-svg:nth-child(3) {
+    animation-delay: -1.5s;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.white-rose {
+    fill: #fff;
+    stroke: #9bb2d1;
+    stroke-width: 1.7;
+    stroke-linejoin: round;
+}
+
+.rose-center {
+    fill: #fff;
+    stroke: #a6bad4;
+    stroke-width: 1.5;
+}
+
+.leaf {
+    fill: #60967d;
+    stroke: #477b65;
+    stroke-width: 1.3;
+}
+
+.stem {
+    stroke: #52876c;
+    stroke-width: 4;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.secret-letter {
     display: none;
-    text-align: left;
-    padding: 22px;
+    padding: 22px 19px;
     margin-top: 20px;
+    border: 1px solid #d6e4f5;
     border-radius: 18px;
-    border: 1px solid #d4e4f7;
     background: #fffdfd;
-    animation: appear 0.7s ease;
+    text-align: left;
+    animation: appear .7s ease;
 }
 
-.hidden-letter.open {
+.secret-letter.open {
     display: block;
 }
 
-.footer {
-    font-size: 13px;
-    color: #6884a6;
-    margin-top: 25px;
-}
-
 @media (max-width: 400px) {
-    main {
-        padding: 15px 10px 30px;
-    }
-
-    .card {
-        padding: 25px 16px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    .btn {
-        padding: 13px 17px;
-        font-size: 15px;
-    }
+    .card { padding: 23px 15px; }
+    p { font-size: 16px; }
+    .btn { padding: 12px 17px; font-size: 15px; }
 }
 </style>
 </head>
@@ -398,28 +514,21 @@ p {
 
 <main>
 
-<!-- PANTALLA 1: BIENVENIDA -->
+<!-- 1. BIENVENIDA -->
 <section class="screen active" id="inicio">
     <div class="card">
-        <div class="small-roses">🤍 🌹 🤍</div>
-        <div class="rose">💐</div>
-
-        <p class="subtitle">Un pequeño detalle hecho con mucho cariño</p>
-
+        <div class="emoji-title">💌</div>
+        <p class="subtitle">Un pequeño detalle hecho con cariño</p>
         <h1>Para Gabriela</h1>
-
         <p>
             Hay regalos que se pueden envolver,
             y hay otros que se preparan con el corazón 🩵
         </p>
-
-        <p>
-            Este es uno de esos regalitos que hice especialmente para ti
-        </p>
+        <p>Preparé algo especialmente para ti</p>
 
         <div class="button-area">
-            <button class="btn" onclick="showScreen('carta1')">
-                Tengo una sorpresa para ti 💌
+            <button class="btn" onclick="showScreen('sobre')">
+                Descubre tu sorpresa 💌
             </button>
         </div>
 
@@ -428,112 +537,121 @@ p {
 </section>
 
 
-<!-- PANTALLA 2: PRIMERA CARTA -->
-<section class="screen" id="carta1">
+<!-- 2. SOBRE QUE SE ABRE AL TOCAR -->
+<section class="screen" id="sobre">
     <div class="card">
-        <div class="rose">💌</div>
-        <h2>Antes de continuar...</h2>
+        <h2>Tienes una cartita</h2>
+        <p>Primero tienes que abrirla, preciosa 🤍</p>
 
-        <div class="letter">
-            <p>Preciosa,</p>
-
-            <p>
-                Quería hacer algo diferente para ti, algo que no fuera
-                solamente un mensaje más en el celular
-            </p>
-
-            <p>
-                Por eso preparé esta pequeña sorpresa, para que puedas
-                abrirla cuando quieras y tengas un rinconcito hecho
-                especialmente para ti
-            </p>
-
-            <p>
-                Quizá no pueda estar a tu lado físicamente en este momento,
-                pero eso no significa que no pueda buscar maneras de
-                hacerte sentir especial
-            </p>
-
-            <p>
-                Así que espero que disfrutes cada parte de esto,
-                porque lo hice pensando en ti 🩵
-            </p>
-
-            <p class="signature">Con mucho cariño 🩵</p>
+        <div class="envelope-area">
+            <div class="envelope" id="envelope" onclick="openEnvelope()">
+                <div class="envelope-back"></div>
+                <div class="envelope-paper">Una cartita para ti 💌</div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-front"></div>
+                <div class="envelope-seal">🤍</div>
+            </div>
+            <div class="open-hint" id="envelopeHint">
+                Toca el sobre para abrirlo 👆
+            </div>
         </div>
 
-        <button class="btn" onclick="showScreen('regalo')">
-            Abre tu regalo 🎁
-        </button>
+        <div id="firstLetter" class="hidden">
+            <div class="letter">
+                <p>Preciosa,</p>
+
+                <p>
+                    Quería hacer algo diferente para ti, algo que no fuera
+                    solamente un mensaje más en el celular
+                </p>
+
+                <p>
+                    Por eso preparé esta pequeña sorpresa, para que puedas
+                    descubrir cada parte a tu ritmo y tengas un rinconcito
+                    hecho especialmente para ti
+                </p>
+
+                <p>
+                    Quizá no pueda estar a tu lado físicamente ahora,
+                    pero eso no significa que no pueda buscar maneras
+                    de hacerte sentir especial
+                </p>
+
+                <p>
+                    Espero que disfrutes cada detalle, porque lo hice
+                    pensando en ti 🩵
+                </p>
+
+                <p class="signature">Con mucho cariño 🩵</p>
+            </div>
+
+            <button class="btn" onclick="showScreen('regalo')">
+                Todavía hay más para ti 🎁
+            </button>
+        </div>
     </div>
 </section>
 
 
-<!-- PANTALLA 3: REGALO -->
+<!-- 3. REGALO QUE SE ABRE AL TOCAR -->
 <section class="screen" id="regalo">
     <div class="card">
         <h2>Un regalito para ti</h2>
+        <p>¿Qué habrá dentro? 👀</p>
 
-        <p>
-            No puedes abrirlo con las manos,
-            pero sí con un poquito de curiosidad JAJAJA
-        </p>
+        <div class="gift-area">
+            <div class="gift" id="gift" onclick="openGift()">
+                <div class="gift-bow">🎀</div>
+                <div class="gift-lid"></div>
+                <div class="gift-box"></div>
+            </div>
 
-        <div class="gift" onclick="showScreen('quiz')">
-            <div class="gift-bow">🎀</div>
-            <div class="gift-lid"></div>
-            <div class="gift-box"></div>
+            <p class="open-hint" id="giftHint">
+                Toca la cajita para abrirla 🎁
+            </p>
+
+            <p class="gift-note" id="giftNote">
+                ¡Sorpresaaaa! JAJAJA 🩵
+            </p>
         </div>
 
-        <p>Presiona el botón para descubrir qué sigue 👀</p>
-
-        <button class="btn" onclick="showScreen('quiz')">
-            Abrir regalo 🎁
-        </button>
+        <div id="giftContinue" class="hidden">
+            <p>Y ahora viene una pequeña prueba 👀</p>
+            <button class="btn" onclick="startQuiz()">
+                Vamos a jugar 💙
+            </button>
+        </div>
     </div>
 </section>
 
 
-<!-- PANTALLA 4: QUIZ -->
+<!-- 4. QUIZ -->
 <section class="screen" id="quiz">
     <div class="card">
-        <div class="rose">🩵</div>
+        <div class="emoji-title">💙</div>
         <h2>¿Cuánto recuerdas?</h2>
-
-        <p>
-            Un mini quiz para poner a prueba tu memoria,
-            a ver qué tanto te acuerdas de algunas cositas JAJAJA
-        </p>
+        <p>Un mini quiz sobre algunas cositas tuyas JAJAJA</p>
 
         <div class="progress">
             <div class="progress-inner" id="progress"></div>
         </div>
 
-        <p id="questionNumber" class="subtitle">Pregunta 1 de 8</p>
-
+        <p class="subtitle" id="questionNumber">Pregunta 1 de 8</p>
         <div class="question" id="questionText"></div>
-
         <div class="answers" id="answers"></div>
-
         <div class="feedback" id="feedback"></div>
 
-        <button
-            class="btn"
-            id="nextQuestion"
-            onclick="nextQuestion()"
-            style="display:none"
-        >
-            Siguiente pregunta 🩵
+        <button class="btn hidden" id="nextQuestion" onclick="nextQuestion()">
+            Siguiente pregunta 💙
         </button>
 
-        <div id="quizResult" style="display:none">
+        <div id="quizResult" class="hidden">
             <h2>¡Terminaste! 🩵</h2>
             <p id="scoreText"></p>
             <p>
-                No importa cuántas hayas acertado,
-                lo importante es que llegaste hasta aquí JAJAJA
+                Gracias por seguir descubriendo cada parte
+                de este regalito JAJAJA
             </p>
-
             <button class="btn" onclick="showScreen('cancion')">
                 Hay algo más para ti 🎶
             </button>
@@ -542,16 +660,15 @@ p {
 </section>
 
 
-<!-- PANTALLA 5: CANCIÓN -->
+<!-- 5. CANCIÓN -->
 <section class="screen" id="cancion">
     <div class="card">
-        <div class="rose">🎶</div>
-
+        <div class="emoji-title">🎶</div>
         <h2>Una canción para ti</h2>
 
         <p>
-            Quería dejarte también una canción para que puedas escucharla
-            mientras ves esta parte de tu regalito
+            También quería dejarte esta canción para que puedas escucharla
+            mientras sigues con tu regalito
         </p>
 
         <div class="spotify-box">
@@ -563,50 +680,92 @@ p {
             </iframe>
         </div>
 
-        <p class="subtitle">
-            Espero que la disfrutes, preciosa 🩵
-        </p>
+        <p class="subtitle">Espero que la disfrutes, preciosa 🩵</p>
 
-        <button class="btn" onclick="showScreen('jardin')">
-            Continuar 🌹
+        <button class="btn" onclick="showScreen('rosas')">
+            Hay otra cosita 🤍
         </button>
     </div>
 </section>
 
 
-<!-- PANTALLA 6: JARDÍN Y CARTA SECRETA -->
-<section class="screen" id="jardin">
+<!-- 6. JARDÍN DE ROSAS BLANCAS REALES EN SVG -->
+<section class="screen" id="rosas">
     <div class="card">
-        <div class="rose">🤍</div>
-
-        <h2>Un pequeño jardín para ti</h2>
+        <div class="emoji-title">🤍</div>
+        <h2>Un jardín para ti</h2>
 
         <p>
             Sé que te gustan las rosas blancas,
-            así que quería dejarte algunas por aquí 🌹
+            así que no podían faltar en tu regalito 🤍
         </p>
 
         <div class="garden">
-            <div class="flower">🤍</div>
-            <div class="flower">🌹</div>
-            <div class="flower">🤍</div>
-            <div class="flower">🌷</div>
-            <div class="flower">🤍</div>
+            <div class="rose-row">
+
+                <!-- ROSA BLANCA 1 -->
+                <svg class="rose-svg" viewBox="0 0 100 180"
+                     xmlns="http://www.w3.org/2000/svg" aria-label="Rosa blanca">
+                    <path class="stem" d="M50 77 Q46 118 51 169"/>
+                    <path class="leaf" d="M49 123 Q20 91 17 116 Q28 138 49 123Z"/>
+                    <path class="leaf" d="M51 145 Q79 111 83 136 Q70 157 51 145Z"/>
+                    <g>
+                        <ellipse class="white-rose" cx="50" cy="46" rx="19" ry="30"/>
+                        <ellipse class="white-rose" cx="34" cy="53" rx="18" ry="24" transform="rotate(-40 34 53)"/>
+                        <ellipse class="white-rose" cx="66" cy="53" rx="18" ry="24" transform="rotate(40 66 53)"/>
+                        <ellipse class="white-rose" cx="39" cy="68" rx="17" ry="19" transform="rotate(-25 39 68)"/>
+                        <ellipse class="white-rose" cx="61" cy="68" rx="17" ry="19" transform="rotate(25 61 68)"/>
+                        <ellipse class="white-rose" cx="50" cy="62" rx="15" ry="18"/>
+                        <path class="rose-center" d="M45 55 Q60 43 57 59 Q54 69 44 64 Q38 57 48 52"/>
+                    </g>
+                </svg>
+
+                <!-- ROSA BLANCA 2 -->
+                <svg class="rose-svg" viewBox="0 0 100 200"
+                     xmlns="http://www.w3.org/2000/svg" aria-label="Rosa blanca">
+                    <path class="stem" d="M50 84 Q54 132 50 189"/>
+                    <path class="leaf" d="M50 131 Q18 99 17 124 Q29 146 50 131Z"/>
+                    <path class="leaf" d="M51 157 Q81 120 85 145 Q72 166 51 157Z"/>
+                    <ellipse class="white-rose" cx="50" cy="45" rx="20" ry="30"/>
+                    <ellipse class="white-rose" cx="33" cy="53" rx="19" ry="25" transform="rotate(-40 33 53)"/>
+                    <ellipse class="white-rose" cx="67" cy="53" rx="19" ry="25" transform="rotate(40 67 53)"/>
+                    <ellipse class="white-rose" cx="36" cy="69" rx="18" ry="20" transform="rotate(-20 36 69)"/>
+                    <ellipse class="white-rose" cx="64" cy="69" rx="18" ry="20" transform="rotate(20 64 69)"/>
+                    <ellipse class="white-rose" cx="50" cy="62" rx="16" ry="19"/>
+                    <path class="rose-center" d="M44 56 Q61 44 57 60 Q54 71 43 64 Q37 57 48 52"/>
+                </svg>
+
+                <!-- ROSA BLANCA 3 -->
+                <svg class="rose-svg" viewBox="0 0 100 180"
+                     xmlns="http://www.w3.org/2000/svg" aria-label="Rosa blanca">
+                    <path class="stem" d="M50 77 Q45 120 50 169"/>
+                    <path class="leaf" d="M49 125 Q21 96 17 117 Q28 140 49 125Z"/>
+                    <path class="leaf" d="M51 145 Q78 113 83 136 Q70 158 51 145Z"/>
+                    <ellipse class="white-rose" cx="50" cy="46" rx="19" ry="30"/>
+                    <ellipse class="white-rose" cx="34" cy="53" rx="18" ry="24" transform="rotate(-40 34 53)"/>
+                    <ellipse class="white-rose" cx="66" cy="53" rx="18" ry="24" transform="rotate(40 66 53)"/>
+                    <ellipse class="white-rose" cx="39" cy="68" rx="17" ry="19" transform="rotate(-25 39 68)"/>
+                    <ellipse class="white-rose" cx="61" cy="68" rx="17" ry="19" transform="rotate(25 61 68)"/>
+                    <ellipse class="white-rose" cx="50" cy="62" rx="15" ry="18"/>
+                    <path class="rose-center" d="M45 55 Q60 43 57 59 Q54 69 44 64 Q38 57 48 52"/>
+                </svg>
+            </div>
 
             <p>
-                Si pudiera, te regalaría rosas blancas de verdad
+                Unas rosas blancas para ti, aunque por ahora
+                solo pueda regalártelas por aquí 🤍
             </p>
         </div>
 
         <p>
-            Y todavía queda una última cosita por descubrir...
+            Y todavía queda una última cartita por descubrir...
         </p>
 
         <button class="btn" onclick="openSecret()">
-            Abre tu última cartita 💌
+            Descubre tu última cartita 💌
         </button>
 
-        <div class="hidden-letter" id="secretLetter">
+        <div class="secret-letter" id="secretLetter">
             <h2>Para mi preciosa 🩵</h2>
 
             <p>
@@ -649,61 +808,104 @@ p {
                 para ser feliz
             </p>
 
-            <p class="signature">
-                Con cariño, para ti 🩵
-            </p>
+            <p class="signature">Con cariño, para ti 🩵</p>
         </div>
 
-        <div class="footer">
-            Un pequeño rincón hecho para ti 🤍
-        </div>
+        <div class="footer">Un pequeño rincón hecho para ti 🤍</div>
     </div>
 </section>
 
 </main>
 
 <script>
-/* CAMBIO DE PANTALLAS */
+/* NAVEGACIÓN ENTRE PANTALLAS */
 
 function showScreen(id) {
     document.querySelectorAll('.screen').forEach(function(screen) {
         screen.classList.remove('active');
     });
 
-    const target = document.getElementById(id);
+    document.getElementById(id).classList.add('active');
 
-    if (target) {
-        target.classList.add('active');
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
+/* SOBRE: SOLO MUESTRA LA CARTA DESPUÉS DE TOCARLO */
 
-/* PÉTALOS CAYENDO */
+let envelopeOpened = false;
+
+function openEnvelope() {
+    if (envelopeOpened) return;
+
+    envelopeOpened = true;
+
+    document.getElementById('envelope').classList.add('open');
+
+    document.getElementById('envelopeHint').textContent =
+        'Tu cartita se está abriendo... 💌';
+
+    setTimeout(function() {
+        document.getElementById('firstLetter').classList.remove('hidden');
+
+        document.getElementById('envelopeHint').textContent =
+            'Una cartita hecha especialmente para ti 🤍';
+
+        document.getElementById('firstLetter').scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest'
+        });
+    }, 850);
+}
+
+/* REGALO: PRIMERO SE ABRE LA CAJA */
+
+let giftOpened = false;
+
+function openGift() {
+    if (giftOpened) return;
+
+    giftOpened = true;
+
+    document.getElementById('gift').classList.add('open');
+
+    document.getElementById('giftHint').textContent =
+        '¡Mira lo que había dentro!';
+
+    document.getElementById('giftNote').classList.add('show');
+
+    setTimeout(function() {
+        document.getElementById('giftContinue').classList.remove('hidden');
+
+        document.getElementById('giftContinue').scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest'
+        });
+    }, 700);
+}
+
+/* PÉTALOS */
 
 function createPetal() {
-    const petal = document.createElement('div');
+    const petal = document.createElement('span');
 
     petal.className = 'petal';
-    petal.textContent = Math.random() > 0.5 ? '❀' : '✿';
-
+    petal.textContent = Math.random() > .5 ? '❀' : '✿';
     petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.fontSize = (15 + Math.random() * 15) + 'px';
-    petal.style.opacity = 0.6 + Math.random() * 0.4;
-    petal.style.animationDuration = (6 + Math.random() * 6) + 's';
+    petal.style.fontSize = (16 + Math.random() * 15) + 'px';
+    petal.style.animationDuration = (7 + Math.random() * 6) + 's';
+    petal.style.opacity = .7 + Math.random() * .3;
 
     document.body.appendChild(petal);
 
     setTimeout(function() {
         petal.remove();
-    }, 12500);
+    }, 14000);
 }
 
 setInterval(createPetal, 450);
-
 
 /* QUIZ */
 
@@ -758,6 +960,20 @@ let currentQuestion = 0;
 let score = 0;
 let answered = false;
 
+function startQuiz() {
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById('questionText').classList.remove('hidden');
+    document.getElementById('answers').classList.remove('hidden');
+    document.getElementById('feedback').classList.remove('hidden');
+    document.getElementById('questionNumber').classList.remove('hidden');
+    document.getElementById('quizResult').classList.add('hidden');
+
+    showScreen('quiz');
+    renderQuestion();
+}
+
 function renderQuestion() {
     answered = false;
 
@@ -772,7 +988,8 @@ function renderQuestion() {
         (currentQuestion / questions.length * 100) + '%';
 
     document.getElementById('feedback').textContent = '';
-    document.getElementById('nextQuestion').style.display = 'none';
+
+    document.getElementById('nextQuestion').classList.add('hidden');
 
     const answersDiv = document.getElementById('answers');
     answersDiv.innerHTML = '';
@@ -822,7 +1039,7 @@ function chooseAnswer(index, button) {
         buttons[q.correct].style.borderColor = '#3e9660';
     }
 
-    document.getElementById('nextQuestion').style.display = 'inline-flex';
+    document.getElementById('nextQuestion').classList.remove('hidden');
 }
 
 function nextQuestion() {
@@ -831,18 +1048,21 @@ function nextQuestion() {
     if (currentQuestion < questions.length) {
         renderQuestion();
     } else {
-        document.getElementById('questionText').style.display = 'none';
-        document.getElementById('answers').style.display = 'none';
-        document.getElementById('feedback').style.display = 'none';
-        document.getElementById('questionNumber').style.display = 'none';
+        document.getElementById('questionText').classList.add('hidden');
+        document.getElementById('answers').classList.add('hidden');
+        document.getElementById('feedback').classList.add('hidden');
+        document.getElementById('questionNumber').classList.add('hidden');
         document.getElementById('progress').style.width = '100%';
-        document.getElementById('nextQuestion').style.display = 'none';
-        document.getElementById('quizResult').style.display = 'block';
+
+        document.getElementById('nextQuestion').classList.add('hidden');
+        document.getElementById('quizResult').classList.remove('hidden');
 
         document.getElementById('scoreText').textContent =
-            'Tu resultado fue ' + score + ' de ' + questions.length + ' 🩵';
+            'Tu resultado fue ' + score + ' de ' + questions.length + ' 💙';
     }
 }
+
+/* CARTA FINAL */
 
 function openSecret() {
     const letter = document.getElementById('secretLetter');
@@ -858,8 +1078,6 @@ function openSecret() {
         }, 100);
     }
 }
-
-renderQuestion();
 </script>
 
 </body>
